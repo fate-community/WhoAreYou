@@ -8,7 +8,10 @@ public class Managers : MonoBehaviour
 
     // 갖가지 매니저들의 인스턴스
     private static InputManager _input = new InputManager();
+    private static DialogueManager _dialogue = new DialogueManager();
+
     public static InputManager Input { get { return _input; } }
+    public static DialogueManager Dialogue { get { return _dialogue; } }
 
     void Awake()
     {
