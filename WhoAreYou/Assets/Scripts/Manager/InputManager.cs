@@ -4,6 +4,10 @@ using UnityEngine;
 public class InputManager
 {
     public Action<KeyCode> KeyAction = null;
+    public Action<float, float> DragAction = null;
+
+    private float xmove = 0;
+    private float ymove = 0;
 
     public void OnUpdate()
     {
@@ -28,6 +32,14 @@ public class InputManager
             {
                 KeyAction.Invoke(KeyCode.D);
             }
+        }
+
+        if (DragAction != null)
+        {
+            xmove += Input.GetAxis("Mouse X");
+            ymove -= Input.GetAxis("Mouse Y");
+
+            DragAction.Invoke(xmove, ymove);
         }
     }
 }
