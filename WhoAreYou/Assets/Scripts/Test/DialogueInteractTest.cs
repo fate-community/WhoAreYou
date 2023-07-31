@@ -11,10 +11,19 @@ public class DialogueInteractTest : MonoBehaviour
     {
         DialogueTestButton[0] = transform.Find("Test1").GetComponent<Button>();
         DialogueTestData[0] = transform.Find("Test1").GetComponent<DialogueController>().dialogueData;
+        DialogueTestButton[1] = transform.Find("Test2").GetComponent<Button>();
+        DialogueTestData[1] = transform.Find("Test2").GetComponent<DialogueController>().dialogueData;
     }
     public void OnClickDialogueTestButton1()
     {
         Managers.Dialogue.dialogueData = DialogueTestData[0];
-        Managers.Dialogue.DialogueAction.Invoke();
+        Managers.Dialogue.currentDialogueIndex = 0;
+        Managers.Dialogue.ShowDialogue();
+    }
+    public void OnClickDialogueTestButton2()
+    {
+        Managers.Dialogue.dialogueData = DialogueTestData[1];
+        Managers.Dialogue.currentDialogueIndex = 0;
+        Managers.Dialogue.ShowDialogue();
     }
 }
