@@ -5,6 +5,7 @@ public class InputManager
 {
     public Action<KeyCode> KeyAction = null;
     public Action<float, float> DragAction = null;
+    public Action<bool> LeftClickAction = null;
 
     private float xmove = 0;
     private float ymove = 0;
@@ -40,6 +41,11 @@ public class InputManager
             ymove -= Input.GetAxis("Mouse Y");
 
             DragAction.Invoke(xmove, ymove);
+        }
+
+        if (LeftClickAction != null)
+        {
+            LeftClickAction.Invoke(Input.GetMouseButtonDown(0));
         }
     }
 }
