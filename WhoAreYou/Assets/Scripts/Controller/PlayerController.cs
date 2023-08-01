@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Managers.Input.KeyAction -= OnKeyboard;
+        Managers.Input.LeftClickAction -= OnLeftClicked;
         Managers.Input.KeyAction += OnKeyboard;
+        Managers.Input.LeftClickAction += OnLeftClicked;
     }
 
     private void Awake()
@@ -23,6 +25,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("moveSpeed", 0.0f);
+    }
+
+    void OnLeftClicked(bool clicked)
+    {
+        if (clicked)
+        {
+            animator.SetTrigger("isAttack");
+        }
     }
 
     void OnKeyboard(KeyCode key)
