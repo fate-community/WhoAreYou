@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Animator animator;
 
     [SerializeField]
     float _speed = 10.0f;
@@ -14,9 +15,14 @@ public class PlayerController : MonoBehaviour
         Managers.Input.KeyAction += OnKeyboard;
     }
 
-    void Update()
+    private void Awake()
     {
+        animator = GetComponent<Animator>();
+    }
 
+    private void Update()
+    {
+        animator.SetFloat("moveSpeed", 0.0f);
     }
 
     void OnKeyboard(KeyCode key)
@@ -41,5 +47,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.right), 0.2f);
             transform.position += Vector3.right * Time.deltaTime * _speed;
         }
+        animator.SetFloat("moveSpeed", 5.0f);
+
+
     }
 }
