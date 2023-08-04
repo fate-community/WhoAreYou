@@ -20,14 +20,6 @@ public class Stat : MonoBehaviour
     public int Defense { get { return _defense; } set { _defense = value; } }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _hp = 100;
-        _maxHp = 100;
-        _attack = 10;
-        _defense = 5;
-    }
 
     public void OnAttacked(Stat stat)
     {
@@ -43,8 +35,5 @@ public class Stat : MonoBehaviour
 
     public void OnDead(Stat stat)
     {
-        //Application.Quit();
-
-        // UI 구현되면 창 띄워서 게임 종료 / 재시작 등 선택할 수 있게?..
     }
 }

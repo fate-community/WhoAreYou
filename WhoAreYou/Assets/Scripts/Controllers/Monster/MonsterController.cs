@@ -38,6 +38,9 @@ public abstract class MonsterController : MonoBehaviour
     [SerializeField]
     float _attackRange = 2;
 
+    [SerializeField]
+    BoxCollider weapon;
+
     protected NavMeshAgent nav;
     protected Vector3 _startPos;
     [SerializeField]
@@ -130,7 +133,6 @@ public abstract class MonsterController : MonoBehaviour
                 else if (!_isAttack)
                 {
                     // 공격 로직 실행
-                    Attack();
                     _isAttack = true;
                 }
                 break;
@@ -143,12 +145,6 @@ public abstract class MonsterController : MonoBehaviour
     public abstract void Init();
 
 
-    protected void Attack()
-    {
-        // 공격 로직을 구현하세요.
-        // 예시: 플레이어에게 피해를 입히는 동작을 수행
-        // 예시: player.GetComponent<PlayerController>().TakeDamage(damageAmount);
-    }
 
     protected void ChangedAction(eActionState state)
     {
@@ -187,7 +183,6 @@ public abstract class MonsterController : MonoBehaviour
     }
 
 
-
     void ProcessAI()
     {
         if (!_isSelectAi)
@@ -218,6 +213,16 @@ public abstract class MonsterController : MonoBehaviour
 
         Vector3 rv = new Vector3(rx, 0, rz);
         return center + rv;
+    }
+
+    protected void OnWeapon()
+    {
+        weapon.enabled = true;
+    }
+
+    protected void OffWeapon()
+    {
+        weapon.enabled = false;
     }
 
 
@@ -269,6 +274,14 @@ public abstract class MonsterController : MonoBehaviour
                 ChangedAction(eActionState.IDLE); // 플레이어가 범위를 벗어나면 Idle 상태로 전환
                 _timeWait = Random.Range(minTime, maxTime);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("weapon"))
+        {
+            print("충돌");
         }
     }
 

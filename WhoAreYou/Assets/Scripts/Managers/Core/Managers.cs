@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Managers : MonoBehaviour
@@ -6,21 +8,9 @@ public class Managers : MonoBehaviour
     static Managers _managerInstance;
     static Managers ManagerInstance { get { Init(); return _managerInstance; } }
 
-    #region Content
-    static GameManager _game;
-    static GameManager game { get { return _game; } }
-    #endregion
-
     // 갖가지 매니저들의 인스턴스
     private static InputManager _input = new InputManager();
-    private static DialogueManager _dialogue = new DialogueManager();
-
     public static InputManager Input { get { return _input; } }
-    public static DialogueManager Dialogue { get { return _dialogue; } }
-
-
-    static SoundManager _sound;
-    static SoundManager sound { get { return _sound; } }
 
     void Awake()
     {
