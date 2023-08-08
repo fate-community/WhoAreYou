@@ -51,4 +51,11 @@ public class DialogueManager
             currentDialogueIndex = 0;
         }
     }
+
+    public void ShowDialogue(DialogueData _dialogueData)
+    {
+        dialogueData = _dialogueData;
+        currentDialogueIndex = 0;
+        ShowDialogue();
+    }
 }

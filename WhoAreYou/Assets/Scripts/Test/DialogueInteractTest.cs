@@ -16,14 +16,10 @@ public class DialogueInteractTest : MonoBehaviour
     }
     public void OnClickDialogueTestButton1()
     {
-        Managers.Dialogue.dialogueData = DialogueTestData[0];
-        Managers.Dialogue.currentDialogueIndex = 0;
-        Managers.Dialogue.ShowDialogue();
+        Managers.Dialogue.ShowDialogue(DialogueTestData[0]);
     }
     public void OnClickDialogueTestButton2()
     {
-        Managers.Dialogue.dialogueData = DialogueTestData[1];
-        Managers.Dialogue.currentDialogueIndex = 0;
-        Managers.Dialogue.ShowDialogue();
+        Managers.Dialogue.ShowDialogue(DialogueTestData[1]);
     }
 }
