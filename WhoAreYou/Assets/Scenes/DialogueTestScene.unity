@@ -222,9 +222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueData:
     data:
-    - Hello!
-    - My name is Steve
-    - Have a nice day!
+    - dialogue: Hi!
+      name: ???
+    - dialogue: My name is Steve.
+      name: Steve
+    - dialogue: Glad to see you friend.
+      name: Steve
 --- !u!114 &271509012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,9 +984,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueData:
     data:
-    - Good mornig!
-    - My name is Simpson.
-    - See you later!
+    - dialogue: Good morning.
+      name: ???
+    - dialogue: I'm Hans from America.
+      name: Hans
+    - dialogue: Bye.
+      name: Hans
 --- !u!114 &1349616577
 MonoBehaviour:
   m_ObjectHideFlags: 0

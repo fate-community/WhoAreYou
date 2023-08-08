@@ -1,18 +1,23 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Datas
 {
     [Serializable]
     public class DialogueData
     {
-        public List<string> data;
+        public List<DialogueDataSet> data;
 
         public DialogueData()
         {
-            data = new List<string>();
+            data = new List<DialogueDataSet>();
         }
+    }
+
+    [Serializable]
+    public class DialogueDataSet
+    {
+        public string dialogue;
+        public string name;
     }
 }

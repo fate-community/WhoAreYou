@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using static Datas;
@@ -12,6 +11,7 @@ public class DialogueManager
 
     GameObject dialogueUIObject;
     public TextMeshProUGUI dialogueUIText;
+    public TextMeshProUGUI nameUIText;
 
     public Action DialogueAction;
 
@@ -26,6 +26,7 @@ public class DialogueManager
             dialogueUIObject = GameObject.Instantiate(Resources.Load("Prefabs/DialogueCanvas") as GameObject);
         }
         dialogueUIText = dialogueUIObject.transform.Find("Panel/DialogueText").GetComponent<TextMeshProUGUI>();
+        nameUIText = dialogueUIObject.transform.Find("Panel/NameText").GetComponent<TextMeshProUGUI>();
         dialogueUIObject.SetActive(false);
 
         DialogueAction -= ShowDialogue;

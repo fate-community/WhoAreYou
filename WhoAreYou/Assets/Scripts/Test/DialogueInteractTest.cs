@@ -14,10 +14,12 @@ public class DialogueInteractTest : MonoBehaviour
         DialogueTestButton[1] = transform.Find("Test2").GetComponent<Button>();
         DialogueTestData[1] = transform.Find("Test2").GetComponent<DialogueController>().dialogueData;
     }
+
     public void OnClickDialogueTestButton1()
     {
         Managers.Dialogue.ShowDialogue(DialogueTestData[0]);
     }
+
     public void OnClickDialogueTestButton2()
     {
         Managers.Dialogue.ShowDialogue(DialogueTestData[1]);
