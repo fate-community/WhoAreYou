@@ -5,9 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Animator animator;
+    public GameObject Camera;
 
     [SerializeField]
     float _speed = 10.0f;
+
+    public enum State
+    {
+        IDLE,
+        RUN,
+        ATTACK,
+        HIT,
+        DEATH
+    }
+
+    public State state;
 
     void Start()
     {
@@ -20,45 +32,79 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        state = State.IDLE;
+        animator.SetInteger("state", 0);
     }
 
     private void Update()
     {
-        animator.SetFloat("moveSpeed", 0.0f);
+        switch (state)
+        {
+            case State.IDLE:
+                animator.SetInteger("state", 0);
+                break;
+            case State.RUN:
+                if (animator.GetInteger("state") == 1)
+                {
+                    state = State.IDLE;
+                }
+                break;
+            case State.ATTACK:
+                if (animator.GetInteger("state") == 2)
+                {
+                    state = State.IDLE;
+                }
+                break;
+            case State.HIT:
+                break;
+            case State.DEATH:
+                break;
+
+        }
     }
 
     void OnLeftClicked(bool clicked)
     {
-        if (clicked)
+        if (clicked && state != State.ATTACK)
         {
-            animator.SetTrigger("isAttack");
+            state = State.ATTACK;
+            animator.SetInteger("state", 2);
         }
     }
 
     void OnKeyboard(KeyCode key)
     {
-        if (key == KeyCode.W)
+        if (state == State.IDLE)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 0.2f);
-            transform.position += Vector3.forward * Time.deltaTime * _speed;
-        }
-        if (key == KeyCode.S)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.back), 0.2f);
-            transform.position += Vector3.back * Time.deltaTime * _speed;
-        }
-        if (key == KeyCode.A)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.left), 0.2f);
-            transform.position += Vector3.left * Time.deltaTime * _speed;
-        }
-        if (key == KeyCode.D)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.right), 0.2f);
-            transform.position += Vector3.right * Time.deltaTime * _speed;
-        }
-        animator.SetFloat("moveSpeed", 5.0f);
+            state = State.RUN;
+            animator.SetInteger("state", 1);
 
+            Vector3 cameraPos = new Vector3(Camera.transform.position.x, 0, Camera.transform.position.z);
 
+            if (key == KeyCode.W)
+            {
+                Vector3 dir = new Vector3(-cameraPos.x, 0, -cameraPos.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                // transform.position += Vector3.forward * Time.deltaTime * _speed;
+            }
+            if (key == KeyCode.S)
+            {
+                Vector3 dir = new Vector3(cameraPos.x, 0, cameraPos.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                // transform.position += Vector3.back * Time.deltaTime * _speed;
+            }
+            if (key == KeyCode.A)
+            {
+                Vector3 dir = new Vector3(-cameraPos.x, 0, -cameraPos.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                // transform.position += Vector3.left * Time.deltaTime * _speed;
+            }
+            if (key == KeyCode.D)
+            {
+                Vector3 dir = new Vector3(-cameraPos.x, 0, -cameraPos.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                // transform.position += Vector3.right * Time.deltaTime * _speed;
+            }
+        }
     }
 }
