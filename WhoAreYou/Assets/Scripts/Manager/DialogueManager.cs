@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static Datas;
 
 public class DialogueManager
@@ -12,6 +13,7 @@ public class DialogueManager
     GameObject dialogueUIObject;
     public TextMeshProUGUI dialogueUIText;
     public TextMeshProUGUI nameUIText;
+    public Image dialogueIllust;
 
     public Action DialogueAction;
 
@@ -27,6 +29,7 @@ public class DialogueManager
         }
         dialogueUIText = dialogueUIObject.transform.Find("Panel/DialogueText").GetComponent<TextMeshProUGUI>();
         nameUIText = dialogueUIObject.transform.Find("Panel/NameText").GetComponent<TextMeshProUGUI>();
+        dialogueIllust = dialogueUIObject.transform.Find("Panel/Illust").GetComponent<Image>();
         dialogueUIObject.SetActive(false);
 
         DialogueAction -= ShowDialogue;
@@ -48,6 +51,7 @@ public class DialogueManager
 
         else
         {
+            dialogueIllust.color = new Color(dialogueIllust.color.r, dialogueIllust.color.g, dialogueIllust.color.b, 0);
             dialogueUIObject.SetActive(false);
             currentDialogueIndex = 0;
         }

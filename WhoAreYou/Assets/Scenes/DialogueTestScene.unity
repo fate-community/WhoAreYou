@@ -224,10 +224,13 @@ MonoBehaviour:
     data:
     - dialogue: Hi!
       name: ???
+      illust: {fileID: 0}
     - dialogue: My name is Steve.
       name: Steve
+      illust: {fileID: 21300000, guid: cac3c9055695c9843b0cca6b0fc27a92, type: 3}
     - dialogue: Glad to see you friend.
       name: Steve
+      illust: {fileID: 21300000, guid: cac3c9055695c9843b0cca6b0fc27a92, type: 3}
 --- !u!114 &271509012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +450,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221611010422765073, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_margin.w
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766311506274421525, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766311506274421525, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766311506274421525, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766311506274421525, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766311506274421525, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766311506274421525, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766311506274421525, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6227441511701125584, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -530,6 +565,10 @@ PrefabInstance:
     - target: {fileID: 6227441511701125584, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454807259254205655, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
+      propertyPath: m_margin.w
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7616417268118183151, guid: af557bc83e07ba44b93e7568f1b756c9, type: 3}
       propertyPath: m_Name
@@ -986,10 +1025,13 @@ MonoBehaviour:
     data:
     - dialogue: Good morning.
       name: ???
+      illust: {fileID: 0}
     - dialogue: I'm Hans from America.
       name: Hans
+      illust: {fileID: 21300000, guid: 8a339170bbc1f054ba958da4a6025369, type: 3}
     - dialogue: Bye.
       name: Hans
+      illust: {fileID: 21300000, guid: 8a339170bbc1f054ba958da4a6025369, type: 3}
 --- !u!114 &1349616577
 MonoBehaviour:
   m_ObjectHideFlags: 0

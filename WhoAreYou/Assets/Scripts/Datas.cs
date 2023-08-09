@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Datas
 {
@@ -19,5 +20,6 @@ public class Datas
     {
         public string dialogue;
         public string name;
+        public Sprite illust;
     }
 }

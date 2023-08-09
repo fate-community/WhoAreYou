@@ -30,6 +30,13 @@ public class DialogueUI : MonoBehaviour
     public void ShowDialogue()
     {
         Managers.Dialogue.nameUIText.text = Managers.Dialogue.dialogueData.data[Managers.Dialogue.currentDialogueIndex].name;
+        if (Managers.Dialogue.dialogueData.data[Managers.Dialogue.currentDialogueIndex].illust != null)
+        {
+            Managers.Dialogue.dialogueIllust.color = new Color(1, 1, 1, 1);
+            Managers.Dialogue.dialogueIllust.sprite = Managers.Dialogue.dialogueData.data[Managers.Dialogue.currentDialogueIndex].illust;
+        }
+        else
+            Managers.Dialogue.dialogueIllust.color = new Color(1, 1, 1, 0);
         letterAnimation = StartCoroutine(LetterAnimation());
     }
 
