@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     float _speed = 10.0f;
+    bool _run = false;
+    bool _attack = true;
 
     public enum State
     {
@@ -21,7 +24,7 @@ public class PlayerController : MonoBehaviour
         DEATH
     }
 
-    public State state;
+    public State playerState;
 
     void Start()
     {
@@ -34,27 +37,26 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        state = State.IDLE;
+        playerState = State.IDLE;
         animator.SetInteger("state", 0);
     }
 
     private void Update()
     {
-        switch (state)
+        switch (playerState)
         {
             case State.IDLE:
-                animator.SetInteger("state", 0);
                 break;
             case State.RUN:
-                if (animator.GetInteger("state") == 1)
+                if (!_run)
                 {
-                    state = State.IDLE;
+                    changeState(State.IDLE);
                 }
                 break;
             case State.ATTACK:
-                if (animator.GetInteger("state") == 2)
+                if (!_attack)
                 {
-                    state = State.IDLE;
+                    changeState(State.IDLE);
                 }
                 break;
             case State.HIT:
@@ -63,47 +65,86 @@ public class PlayerController : MonoBehaviour
                 break;
 
         }
+        _run = false;
+    }
+
+    protected void changeState(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                playerState = State.IDLE;
+                animator.SetInteger("state", 0);
+                break;
+            case State.RUN:
+                playerState = State.RUN;
+                animator.SetInteger("state", 1);
+                break;
+            case State.ATTACK:
+                playerState = State.ATTACK;
+                animator.SetInteger("state", 2);
+                _attack = true;
+                Invoke("attackCounter", 1.45f);
+                break;
+            case State.DEATH:
+                playerState = State.DEATH;
+                animator.SetInteger("state", 3);
+                break;
+            case State.HIT:
+                playerState = State.HIT;
+                animator.SetInteger("state", 4);
+                break;
+        }
+    }
+
+    protected void attackCounter()
+    {
+        _attack = false;
     }
 
     void OnLeftClicked(bool clicked)
     {
-        if (clicked && state != State.ATTACK)
+        if (clicked && playerState != State.ATTACK)
         {
-            state = State.ATTACK;
-            animator.SetInteger("state", 2);
+            changeState(State.ATTACK);
         }
     }
 
     void OnKeyboard(KeyCode key)
     {
-        if (state == State.IDLE)
+        if (playerState == State.IDLE && playerState != State.ATTACK)
         {
-            state = State.RUN;
-            animator.SetInteger("state", 1);
-
+            changeState(State.RUN);
+        }
+        if (playerState == State.RUN)
+        {
             var offset = Camera.transform.forward;
             offset.y = 0;
 
             if (key == KeyCode.W)
             {
+                _run = true;
                 var dir = offset;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
                 transform.position += dir * Time.deltaTime * _speed;
             }
             if (key == KeyCode.S)
             {
+                _run = true;
                 var dir = -offset;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
                 transform.position += dir * Time.deltaTime * _speed;
             }
             if (key == KeyCode.D)
             {
+                _run = true;
                 var dir = new Vector3(offset.z, offset.y, -offset.x);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
                 transform.position += dir * Time.deltaTime * _speed;
             }
             if (key == KeyCode.A)
             {
+                _run = true;
                 var dir = new Vector3(-offset.z, offset.y, offset.x);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
                 transform.position += dir * Time.deltaTime * _speed;
