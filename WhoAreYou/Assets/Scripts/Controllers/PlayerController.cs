@@ -74,9 +74,4 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("moveSpeed", 3.0f);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        stat.Hp -= 2;
-        print(stat.Hp);
-    }
 }
