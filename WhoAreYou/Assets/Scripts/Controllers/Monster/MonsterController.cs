@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication.ExtendedProtection;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public abstract class MonsterController : MonoBehaviour
 {
@@ -48,6 +50,13 @@ public abstract class MonsterController : MonoBehaviour
     protected bool _isSelectAi;
     protected int _characterStd;
 
+    protected int hp;
+    protected int maxHp;
+
+    Stat stat;
+
+    [SerializeField]
+    Slider hpBar;
 
     protected enum eActionState
     {
@@ -55,10 +64,11 @@ public abstract class MonsterController : MonoBehaviour
         WALK,
         RUN,
         ATTACK,
-        HIT
+        HIT,
+        DIE,
     }
 
-    protected  enum eCharacter
+    protected enum eCharacter
     {
         Fierce = 0,
         Lazy
@@ -69,9 +79,16 @@ public abstract class MonsterController : MonoBehaviour
 
     protected Animator _ctrlAnim;
 
+    private void Awake()
+    {
+        Stat stat = GetComponent<Stat>();
+        hp = stat.Hp;
+    }
+
     protected void Start()
     {
         Init();
+        stat = GetComponent<Stat>();
         switch (_eCh)
         {
             case eCharacter.Fierce:
@@ -86,7 +103,24 @@ public abstract class MonsterController : MonoBehaviour
     protected void Update()
     {
         if (_isDeath)
+        {
+            ChangedAction(eActionState.DIE);
+            gameObject.SetActive(false);
+            _isDeath = false;
+            stat.Hp = 10;
+            Debug.Log("Die");
             return;
+        }
+
+        /*
+        if (hpBar.value <= 0)
+        {
+            Debug.Log("HPbar false");
+            transform.Find("Fill Area").gameObject.SetActive(false);
+        }
+        */
+
+        hpBar.value = (float)stat.Hp / (float)stat.MaxHp;
 
         switch (_stateAction)
         {
@@ -136,6 +170,12 @@ public abstract class MonsterController : MonoBehaviour
                     _isAttack = true;
                 }
                 break;
+            case eActionState.HIT:
+                if (stat.Hp <= 0)
+                {
+                    _isDeath = true;
+                }
+                break;
         }
 
         ProcessAI();
@@ -143,8 +183,6 @@ public abstract class MonsterController : MonoBehaviour
     }
 
     public abstract void Init();
-
-
 
     protected void ChangedAction(eActionState state)
     {
@@ -170,7 +208,7 @@ public abstract class MonsterController : MonoBehaviour
                 _ctrlAnim.SetInteger("state", (int)_stateAction);
                 break;
             case eActionState.ATTACK:
-                if (_stateAction == eActionState.RUN)
+                if (_stateAction == eActionState.RUN || _stateAction == eActionState.HIT)
                 {
                     _isAttack = false;
                     _stateAction = state;
@@ -178,6 +216,12 @@ public abstract class MonsterController : MonoBehaviour
                 }
                 break;
             case eActionState.HIT:
+                _stateAction = state;
+                _ctrlAnim.SetInteger("state", (int)_stateAction);
+                break;
+            case eActionState.DIE:
+                _stateAction = state;
+                _ctrlAnim.SetInteger("state", (int)_stateAction);
                 break;
         }
     }
@@ -226,6 +270,14 @@ public abstract class MonsterController : MonoBehaviour
     }
 
 
+    /*
+    protected void DestroyMonster()
+    {
+        Debug.Log("Á×À½");
+        Destroy(gameObject);
+        // gameObject.SetActive(false);
+    }
+    */
 
     protected void Sight()
     {
@@ -277,15 +329,20 @@ public abstract class MonsterController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void HitEvent()
     {
-        if(other.CompareTag("weapon"))
-        {
-            print("Ãæµ¹");
-        }
+        ChangedAction(eActionState.ATTACK);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject player = GameObject.Find("Player");
+        if (other.CompareTag("weapon"))
+        {
+            stat.OnAttacked(player.GetComponent<Stat>());
+            ChangedAction(eActionState.HIT);
+        }
+    }
 }
-
 
 

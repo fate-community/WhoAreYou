@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class OrkController : MonsterController
 {
-    Stat _stat;
     MonsterSpawn _monsterSpawn;
 
     private void Awake()
@@ -20,7 +19,6 @@ public class OrkController : MonsterController
 
     public override void Init()
     {
-        _stat = gameObject.GetComponent<Stat>();
         _isDeath = false;
         _isAttack = false;
         _ctrlAnim = GetComponent<Animator>();

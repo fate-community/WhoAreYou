@@ -21,19 +21,12 @@ public class Stat : MonoBehaviour
 
 
 
-    public void OnAttacked(Stat stat)
+    public void OnAttacked(Stat Attacker)
     {
-        int damage = Mathf.Max(0, stat.Attack - Defense);
+        int damage = Mathf.Max(0, Attacker.Attack - Defense);
         Hp -= damage;
 
-        if (Hp <= 0)
-        {
-            Hp = 0;
-            OnDead(stat);
-        }
     }
 
-    public void OnDead(Stat stat)
-    {
-    }
+
 }

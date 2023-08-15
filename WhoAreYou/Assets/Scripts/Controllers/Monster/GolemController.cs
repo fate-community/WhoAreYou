@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class GolemController : MonsterController
 {
-    Stat _stat;
     MonsterSpawn _monsterSpawn;
 
     private void Awake()
@@ -14,13 +13,11 @@ public class GolemController : MonsterController
         _isAttack = false;
         nav = GetComponent<NavMeshAgent>();
         _startPos = transform.position;
-
         _monsterSpawn = GetComponent<MonsterSpawn>();
     }
 
     public override void Init()
     {
-        _stat = gameObject.GetComponent<Stat>();
         _isDeath = false;
         _isAttack = false;
         _ctrlAnim = GetComponent<Animator>();

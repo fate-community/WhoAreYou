@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class DragonController : MonsterController
 {
-    Stat _stat;
     MonsterSpawn _monsterSpawn;
 
     private void Awake()
@@ -14,13 +13,11 @@ public class DragonController : MonsterController
         _isAttack = false;
         nav = GetComponent<NavMeshAgent>();
         _startPos = transform.position;
-
         _monsterSpawn = GetComponent<MonsterSpawn>();
     }
 
     public override void Init()
     {
-        _stat = gameObject.GetComponent<Stat>();
         _isDeath = false;
         _isAttack = false;
         _ctrlAnim = GetComponent<Animator>();
