@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -79,31 +81,32 @@ public class PlayerController : MonoBehaviour
             state = State.RUN;
             animator.SetInteger("state", 1);
 
-            Vector3 cameraPos = new Vector3(Camera.transform.position.x, 0, Camera.transform.position.z);
+            var offset = Camera.transform.forward;
+            offset.y = 0;
 
             if (key == KeyCode.W)
             {
-                Vector3 dir = new Vector3(-cameraPos.x, 0, -cameraPos.z);
+                var dir = offset;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                // transform.position += Vector3.forward * Time.deltaTime * _speed;
+                transform.position += dir * Time.deltaTime * _speed;
             }
             if (key == KeyCode.S)
             {
-                Vector3 dir = new Vector3(cameraPos.x, 0, cameraPos.z);
+                var dir = -offset;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                // transform.position += Vector3.back * Time.deltaTime * _speed;
-            }
-            if (key == KeyCode.A)
-            {
-                Vector3 dir = new Vector3(-cameraPos.x, 0, -cameraPos.z);
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                // transform.position += Vector3.left * Time.deltaTime * _speed;
+                transform.position += dir * Time.deltaTime * _speed;
             }
             if (key == KeyCode.D)
             {
-                Vector3 dir = new Vector3(-cameraPos.x, 0, -cameraPos.z);
+                var dir = new Vector3(offset.z, offset.y, -offset.x);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                // transform.position += Vector3.right * Time.deltaTime * _speed;
+                transform.position += dir * Time.deltaTime * _speed;
+            }
+            if (key == KeyCode.A)
+            {
+                var dir = new Vector3(-offset.z, offset.y, offset.x);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                transform.position += dir * Time.deltaTime * _speed;
             }
         }
     }
