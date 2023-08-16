@@ -1,15 +1,16 @@
 using System.Collections;
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using static Datas;
 
 public class Managers : MonoBehaviour
 {
-    // ÅëÇÕ ¸Å´ÏÀú ÀÎ½ºÅÏ½º
+    // í†µí•© ë§¤ë‹ˆì € ì¸ìŠ¤í„´ìŠ¤
     static Managers _managerInstance;
     static Managers ManagerInstance { get { Init(); return _managerInstance; } }
 
-    // °®°¡Áö ¸Å´ÏÀúµéÀÇ ÀÎ½ºÅÏ½º
+    // ê°–ê°€ì§€ ë§¤ë‹ˆì €ë“¤ì˜ ì¸ìŠ¤í„´ìŠ¤
     private static InputManager _input = new InputManager();
     private static DialogueManager _dialogue = new DialogueManager();
 
