@@ -1,4 +1,7 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using static Datas;
 
 public class Managers : MonoBehaviour
 {
@@ -36,5 +39,6 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             _managerInstance = go.GetComponent<Managers>();
         }
+        _dialogue.Init();
     }
 }
