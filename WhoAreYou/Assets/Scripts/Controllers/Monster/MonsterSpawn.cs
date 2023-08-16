@@ -25,7 +25,7 @@ public class MonsterSpawn : MonoBehaviour
         area = GetComponent<BoxCollider>();
 
         StopAllCoroutines();
-
+        
         for (int i = 0; i < poolCount; i++)
         {
             GameObject gameObject = Instantiate(monster);
@@ -45,7 +45,6 @@ public class MonsterSpawn : MonoBehaviour
             if (monsterObjectPool[i].activeSelf == false)   // 비활성화 된 인덱스 찾기 (죽은 몬스터 찾기)
             {
                 deadIndex = i;
-                isRespawn = false;
             }
         }
     }
@@ -58,13 +57,12 @@ public class MonsterSpawn : MonoBehaviour
         {
             GameObject gameObject = monsterObjectPool[deadIndex];     // 죽은 몬스터 
             gameObject.SetActive(true);    // 부활시킴
-
-            isRespawn = true;    // 리스폰 체크
             Debug.Log("리스폰");
 
             if (!isRespawn)   // 리스폰 체크되면 실행 안되어야 하고 인덱스가 바뀌면 실행 한번 되야하는거니까 인덱스 바뀔때마다 체크해줘
             {
                 gameObject.transform.position = GetRandomPosition();
+                isRespawn = true;
             }
         }
     }
