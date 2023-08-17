@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,7 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             _managerInstance = go.GetComponent<Managers>();
         }
+
         _dialogue.Init();
     }
 }
