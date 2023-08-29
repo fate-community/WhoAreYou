@@ -565,7 +565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1736311686}
-  _speed: 5
+  _walkSpeed: 8
+  _runSpeed: 10
   playerState: 0
 --- !u!1 &1576361789
 GameObject:
@@ -669,7 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1466083045}
-  distance: 5
+  distance: 4
 --- !u!81 &1736311688
 AudioListener:
   m_ObjectHideFlags: 0

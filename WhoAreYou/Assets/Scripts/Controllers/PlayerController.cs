@@ -11,13 +11,16 @@ public class PlayerController : MonoBehaviour
     public GameObject Camera;
 
     [SerializeField]
-    float _speed = 10.0f;
+    float _walkSpeed = 5.0f;
+    [SerializeField]
+    float _runSpeed = 10.0f;
     bool _run = false;
     bool _attack = true;
 
     public enum State
     {
         IDLE,
+        WALK,
         RUN,
         ATTACK,
         HIT,
@@ -76,23 +79,27 @@ public class PlayerController : MonoBehaviour
                 playerState = State.IDLE;
                 animator.SetInteger("state", 0);
                 break;
+            case State.WALK:
+                playerState = State.WALK;
+                animator.SetInteger("state", 1);
+                break;
             case State.RUN:
                 playerState = State.RUN;
-                animator.SetInteger("state", 1);
+                animator.SetInteger("state", 2);
                 break;
             case State.ATTACK:
                 playerState = State.ATTACK;
-                animator.SetInteger("state", 2);
+                animator.SetInteger("state", 3);
                 _attack = true;
                 Invoke("attackCounter", 1.45f);
                 break;
             case State.DEATH:
                 playerState = State.DEATH;
-                animator.SetInteger("state", 3);
+                animator.SetInteger("state", 4);
                 break;
             case State.HIT:
                 playerState = State.HIT;
-                animator.SetInteger("state", 4);
+                animator.SetInteger("state", 5);
                 break;
         }
     }
@@ -126,28 +133,28 @@ public class PlayerController : MonoBehaviour
                 _run = true;
                 var dir = offset;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                transform.position += dir * Time.deltaTime * _speed;
+                transform.position += dir * Time.deltaTime * _runSpeed;
             }
             if (key == KeyCode.S)
             {
                 _run = true;
                 var dir = -offset;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                transform.position += dir * Time.deltaTime * _speed;
+                transform.position += dir * Time.deltaTime * _runSpeed;
             }
             if (key == KeyCode.D)
             {
                 _run = true;
                 var dir = new Vector3(offset.z, offset.y, -offset.x);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                transform.position += dir * Time.deltaTime * _speed;
+                transform.position += dir * Time.deltaTime * _runSpeed;
             }
             if (key == KeyCode.A)
             {
                 _run = true;
                 var dir = new Vector3(-offset.z, offset.y, offset.x);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-                transform.position += dir * Time.deltaTime * _speed;
+                transform.position += dir * Time.deltaTime * _runSpeed;
             }
         }
     }
