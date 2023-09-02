@@ -12,4 +12,11 @@ public class Define
         HIT,
         DIE
     }
+
+    public enum QuestType
+    {
+        Dialog,
+        Hunt,
+        Collect
+    }
 }
