@@ -1,22 +1,40 @@
+using System.Collections.Generic;
 using UnityEngine;
-using static Define;
 
 public class Quest : MonoBehaviour
 {
     public int id;
     public string title;
     public string description;
-    public QuestType type;
     public object reward;
 
-    public int goal;
+    Dictionary<int, int> goalDic;      // 이벤트별 할당량 저장용 딕셔너리
+    int remainTaskCnt;
 
-    public Quest(int _id, string _title, string _description, QuestType _type, object _reward)
+    public Quest(int _id, string _title, string _description, object _reward, Dictionary<int, int> _goalDic)
     {
         id = _id;
         title = _title;
         description = _description;
-        type = _type;
         reward = _reward;
+        goalDic = new Dictionary<int, int>(_goalDic);
+        remainTaskCnt = goalDic.Keys.Count;
+    }
+
+    void Start()
+    {
+        Managers.Quest.DialogueEndupAction -= OnTriggerQuestEvent;
+        Managers.Quest.DialogueEndupAction += OnTriggerQuestEvent;
+    }
+
+    void OnTriggerQuestEvent(int recvId)
+    {
+        if (goalDic.ContainsKey(recvId))
+        {
+            if (goalDic[recvId] > 0)
+                goalDic[recvId]--;
+            if (goalDic[recvId] == 0)
+                remainTaskCnt--;
+        }
     }
 }
