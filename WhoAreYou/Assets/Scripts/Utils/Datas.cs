@@ -8,10 +8,12 @@ public class Datas
     public class DialogueData
     {
         public List<DialogueDataSet> data;
+        public int dialogueId;
 
-        public DialogueData()
+        public DialogueData(int _dialogueId)
         {
             data = new List<DialogueDataSet>();
+            dialogueId = _dialogueId;
         }
     }
 

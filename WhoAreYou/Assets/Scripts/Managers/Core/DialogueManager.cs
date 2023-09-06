@@ -48,12 +48,14 @@ public class DialogueManager
                 DialogueAction.Invoke();
             }
         }
-
+        
+        // 대화가 끝나 더이상 보여줄 문자열이 없는 경우
         else
         {
             dialogueIllust.color = new Color(dialogueIllust.color.r, dialogueIllust.color.g, dialogueIllust.color.b, 0);
             dialogueUIObject.SetActive(false);
             currentDialogueIndex = 0;
+            Managers.Quest.DialogueEndupAction.Invoke(dialogueData.dialogueId);
         }
     }
 

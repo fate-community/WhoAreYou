@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest : MonoBehaviour
+public class Quest
 {
     public int id;
     public string title;
@@ -19,11 +19,7 @@ public class Quest : MonoBehaviour
         reward = _reward;
         goalDic = new Dictionary<int, int>(_goalDic);
         remainTaskCnt = goalDic.Keys.Count;
-    }
 
-    void Start()
-    {
-        Managers.Quest.DialogueEndupAction -= OnTriggerQuestEvent;
         Managers.Quest.DialogueEndupAction += OnTriggerQuestEvent;
     }
 
@@ -35,6 +31,13 @@ public class Quest : MonoBehaviour
                 goalDic[recvId]--;
             if (goalDic[recvId] == 0)
                 remainTaskCnt--;
+            if (remainTaskCnt == 0)
+            {
+                Managers.Quest.DialogueEndupAction -= OnTriggerQuestEvent;
+                Managers.Quest.questList.Remove(this);
+                GameObject.Destroy(Managers.Quest.questUIDic[id]);
+                Managers.Quest.questUIDic.Remove(id);
+            }
         }
     }
 }

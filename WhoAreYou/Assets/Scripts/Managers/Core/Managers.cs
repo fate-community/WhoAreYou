@@ -45,5 +45,6 @@ public class Managers : MonoBehaviour
         }
 
         _dialogue.Init();
+        Quest.Init();
     }
 }
