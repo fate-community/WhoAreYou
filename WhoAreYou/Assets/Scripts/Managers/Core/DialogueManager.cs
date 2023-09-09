@@ -55,7 +55,7 @@ public class DialogueManager
             dialogueIllust.color = new Color(dialogueIllust.color.r, dialogueIllust.color.g, dialogueIllust.color.b, 0);
             dialogueUIObject.SetActive(false);
             currentDialogueIndex = 0;
-            Managers.Quest.DialogueEndupAction.Invoke(dialogueData.dialogueId);
+            Managers.Quest.QuestPerformAction.Invoke(dialogueData.dialogueId);
         }
     }
 

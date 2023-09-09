@@ -20,7 +20,7 @@ public class Quest
         goalDic = new Dictionary<int, int>(_goalDic);
         remainTaskCnt = goalDic.Keys.Count;
 
-        Managers.Quest.DialogueEndupAction += OnTriggerQuestEvent;
+        Managers.Quest.QuestPerformAction += OnTriggerQuestEvent;
     }
 
     void OnTriggerQuestEvent(int recvId)
@@ -33,7 +33,7 @@ public class Quest
                 remainTaskCnt--;
             if (remainTaskCnt == 0)
             {
-                Managers.Quest.DialogueEndupAction -= OnTriggerQuestEvent;
+                Managers.Quest.QuestPerformAction -= OnTriggerQuestEvent;
                 Managers.Quest.questList.Remove(this);
                 GameObject.Destroy(Managers.Quest.questUIDic[id]);
                 Managers.Quest.questUIDic.Remove(id);

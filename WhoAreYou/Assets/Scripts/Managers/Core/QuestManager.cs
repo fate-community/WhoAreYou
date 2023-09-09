@@ -8,7 +8,7 @@ public class QuestManager
     public List<Quest> questList = new List<Quest>();
     public Dictionary<int, GameObject> questUIDic = new Dictionary<int, GameObject>();
 
-    public Action<int> DialogueEndupAction;
+    public Action<int> QuestPerformAction;
 
     GameObject questInfo;
     Transform questPanel;
