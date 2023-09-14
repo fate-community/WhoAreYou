@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Authentication.ExtendedProtection;
@@ -55,6 +56,8 @@ public abstract class MonsterController : MonoBehaviour
 
     Stat stat;
 
+    protected int monsterID;
+
     [SerializeField]
     Slider hpBar;
 
@@ -99,6 +102,26 @@ public abstract class MonsterController : MonoBehaviour
                 break;
         }
     }
+    int MonsterID(object sender, EventArgs e)
+    {
+
+        if (this.CompareTag("Ork"))
+        {
+            monsterID = 2000;
+        }
+
+        else if (this.CompareTag("Golem"))
+        {
+            monsterID = 2005;
+        }
+
+        else if (this.CompareTag("Dragon"))
+        {
+            monsterID = 2010;
+        }
+
+        return monsterID;
+    }
 
     protected void Update()
     {
@@ -108,17 +131,11 @@ public abstract class MonsterController : MonoBehaviour
             gameObject.SetActive(false);
             _isDeath = false;
             stat.Hp = 10;
-            Debug.Log("Die");
+
+            Managers.Quest.QuestPerformAction.Invoke(MonsterID(this, EventArgs.Empty));
+
             return;
         }
-
-        /*
-        if (hpBar.value <= 0)
-        {
-            Debug.Log("HPbar false");
-            transform.Find("Fill Area").gameObject.SetActive(false);
-        }
-        */
 
         hpBar.value = (float)stat.Hp / (float)stat.MaxHp;
 
@@ -268,16 +285,6 @@ public abstract class MonsterController : MonoBehaviour
     {
         weapon.enabled = false;
     }
-
-
-    /*
-    protected void DestroyMonster()
-    {
-        Debug.Log("Á×À½");
-        Destroy(gameObject);
-        // gameObject.SetActive(false);
-    }
-    */
 
     protected void Sight()
     {
