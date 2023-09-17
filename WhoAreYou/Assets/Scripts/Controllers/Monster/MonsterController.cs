@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Authentication.ExtendedProtection;
@@ -55,6 +56,8 @@ public abstract class MonsterController : MonoBehaviour
 
     Stat stat;
 
+    protected int monsterID;
+
     [SerializeField]
     Slider hpBar;
 
@@ -99,6 +102,26 @@ public abstract class MonsterController : MonoBehaviour
                 break;
         }
     }
+    int MonsterID(object sender, EventArgs e)
+    {
+
+        if (this.CompareTag("Ork"))
+        {
+            monsterID = 2000;
+        }
+
+        else if (this.CompareTag("Golem"))
+        {
+            monsterID = 2005;
+        }
+
+        else if (this.CompareTag("Dragon"))
+        {
+            monsterID = 2010;
+        }
+
+        return monsterID;
+    }
 
     protected void Update()
     {
@@ -108,17 +131,11 @@ public abstract class MonsterController : MonoBehaviour
             gameObject.SetActive(false);
             _isDeath = false;
             stat.Hp = 10;
-            Debug.Log("Die");
+
+            Managers.Quest.QuestPerformAction.Invoke(MonsterID(this, EventArgs.Empty));
+
             return;
         }
-
-        /*
-        if (hpBar.value <= 0)
-        {
-            Debug.Log("HPbar false");
-            transform.Find("Fill Area").gameObject.SetActive(false);
-        }
-        */
 
         hpBar.value = (float)stat.Hp / (float)stat.MaxHp;
 
@@ -231,12 +248,12 @@ public abstract class MonsterController : MonoBehaviour
     {
         if (!_isSelectAi)
         {
-            int r = Random.Range(0, 100);
+            int r = UnityEngine.Random.Range(0, 100);
             if (r > 80)
             {
                 // 대기.
                 ChangedAction(eActionState.IDLE);
-                _timeWait = Random.Range(minTime, maxTime);
+                _timeWait = UnityEngine.Random.Range(minTime, maxTime);
             }
             else
             { // 걷기
@@ -252,8 +269,8 @@ public abstract class MonsterController : MonoBehaviour
     }
     protected Vector3 GetRandomPos(Vector3 center, float limitX, float limitZ)
     {
-        float rx = Random.Range(-limitX, limitX);
-        float rz = Random.Range(-limitZ, limitZ);
+        float rx = UnityEngine.Random.Range(-limitX, limitX);
+        float rz = UnityEngine.Random.Range(-limitZ, limitZ);
 
         Vector3 rv = new Vector3(rx, 0, rz);
         return center + rv;
@@ -268,16 +285,6 @@ public abstract class MonsterController : MonoBehaviour
     {
         weapon.enabled = false;
     }
-
-
-    /*
-    protected void DestroyMonster()
-    {
-        Debug.Log("죽음");
-        Destroy(gameObject);
-        // gameObject.SetActive(false);
-    }
-    */
 
     protected void Sight()
     {
@@ -324,7 +331,7 @@ public abstract class MonsterController : MonoBehaviour
             {
                 _isAttack = false;
                 ChangedAction(eActionState.IDLE); // 플레이어가 범위를 벗어나면 Idle 상태로 전환
-                _timeWait = Random.Range(minTime, maxTime);
+                _timeWait = UnityEngine.Random.Range(minTime, maxTime);
             }
         }
     }
