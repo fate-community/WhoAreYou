@@ -102,9 +102,8 @@ public abstract class MonsterController : MonoBehaviour
                 break;
         }
     }
-    int MonsterID(object sender, EventArgs e)
+    int MonsterID()
     {
-
         if (this.CompareTag("Ork"))
         {
             monsterID = 2000;
@@ -132,7 +131,7 @@ public abstract class MonsterController : MonoBehaviour
             _isDeath = false;
             stat.Hp = 10;
 
-            Managers.Quest.QuestPerformAction.Invoke(MonsterID(this, EventArgs.Empty));
+            Managers.Quest.QuestPerformAction.Invoke(MonsterID());
 
             return;
         }
