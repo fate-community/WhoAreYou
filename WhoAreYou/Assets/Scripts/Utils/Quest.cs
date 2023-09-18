@@ -35,8 +35,10 @@ public class Quest
             {
                 Managers.Quest.QuestPerformAction -= OnTriggerQuestEvent;
                 Managers.Quest.questList.Remove(this);
-                GameObject.Destroy(Managers.Quest.questUIDic[id]);
-                Managers.Quest.questUIDic.Remove(id);
+                GameObject.Destroy(Managers.Quest.questInfoUIDic[id]);
+                GameObject.Destroy(Managers.Quest.questPreviewUIDic[id]);
+                Managers.Quest.questInfoUIDic.Remove(id);
+                Managers.Quest.questPreviewUIDic.Remove(id);
             }
         }
     }

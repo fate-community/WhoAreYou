@@ -5,6 +5,7 @@ using static Datas;
 public class QuestTestUI : MonoBehaviour
 {
     DialogueData[] testDialogue = new DialogueData[2];
+    int count = 0;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class QuestTestUI : MonoBehaviour
     public void OnClickCreateQuest()
     {
         Dictionary<int, int> goalDic = new Dictionary<int, int>{ { 1000, 1 } };
-        Managers.Quest.CreateNewQuest(1000, "대화하기", "대화를 하고 삽시다", null, goalDic);
+        Managers.Quest.CreateNewQuest(1000 + count++, "대화하기", "대화를 하고 삽시다", null, goalDic);
     }
 
     public void OnClickDialogue()
