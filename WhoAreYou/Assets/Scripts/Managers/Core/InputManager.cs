@@ -34,6 +34,16 @@ public class InputManager
             {
                 KeyAction.Invoke(KeyCode.D);
             }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                KeyAction.Invoke(KeyCode.LeftShift);
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                KeyAction.Invoke(KeyCode.Space);
+            }
         }
 
         if (KeyDownAction != null)

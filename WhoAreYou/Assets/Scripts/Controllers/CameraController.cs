@@ -24,5 +24,6 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(ymove, xmove, 0);
         Vector3 reverseDistance = new Vector3(0.0f, 0.0f, distance);
         transform.position = player.transform.position - transform.rotation * reverseDistance;
+        transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
     }
 }
