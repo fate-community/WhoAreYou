@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:WhoAreYou/Assets/Animations/Monster/Man/Materials.meta
 guid: 09fb4479f14f6244e8a54eb84d3f9357
+========
+guid: ecee8f383db7cb540a9d0836a29c31a9
+>>>>>>>> 07c7e95e9e5ec6093cd0d8399b2ae44ec27009ae:WhoAreYou/Assets/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
