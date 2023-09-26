@@ -4,6 +4,7 @@ using UnityEngine;
 public class InputManager
 {
     public Action<KeyCode> KeyAction = null;
+    public Action<KeyCode> KeyDownAction = null;
     public Action<float, float> DragAction = null;
     public Action<bool> LeftClickAction = null;
 
@@ -32,6 +33,24 @@ public class InputManager
             if (Input.GetKey(KeyCode.D))
             {
                 KeyAction.Invoke(KeyCode.D);
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                KeyAction.Invoke(KeyCode.LeftShift);
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                KeyAction.Invoke(KeyCode.Space);
+            }
+        }
+
+        if (KeyDownAction != null)
+        {
+            if (Input.GetKeyDown(KeyCode.F1))       // 퀘스트 리스트를 불러올 때 사용
+            {
+                KeyDownAction.Invoke(KeyCode.F1);
             }
         }
 

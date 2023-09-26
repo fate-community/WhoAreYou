@@ -102,9 +102,8 @@ public abstract class MonsterController : MonoBehaviour
                 break;
         }
     }
-    int MonsterID(object sender, EventArgs e)
+    int MonsterID()
     {
-
         if (this.CompareTag("Ork"))
         {
             monsterID = 2000;
@@ -132,7 +131,7 @@ public abstract class MonsterController : MonoBehaviour
             _isDeath = false;
             stat.Hp = 10;
 
-            Managers.Quest.QuestPerformAction.Invoke(MonsterID(this, EventArgs.Empty));
+            Managers.Quest.QuestPerformAction.Invoke(MonsterID());
 
             return;
         }
@@ -248,12 +247,12 @@ public abstract class MonsterController : MonoBehaviour
     {
         if (!_isSelectAi)
         {
-            int r = Random.Range(0, 100);
+            int r = UnityEngine.Random.Range(0, 100);
             if (r > 80)
             {
                 // 대기.
                 ChangedAction(eActionState.IDLE);
-                _timeWait = Random.Range(minTime, maxTime);
+                _timeWait = UnityEngine.Random.Range(minTime, maxTime);
             }
             else
             { // 걷기
@@ -269,8 +268,8 @@ public abstract class MonsterController : MonoBehaviour
     }
     protected Vector3 GetRandomPos(Vector3 center, float limitX, float limitZ)
     {
-        float rx = Random.Range(-limitX, limitX);
-        float rz = Random.Range(-limitZ, limitZ);
+        float rx = UnityEngine.Random.Range(-limitX, limitX);
+        float rz = UnityEngine.Random.Range(-limitZ, limitZ);
 
         Vector3 rv = new Vector3(rx, 0, rz);
         return center + rv;
@@ -331,7 +330,7 @@ public abstract class MonsterController : MonoBehaviour
             {
                 _isAttack = false;
                 ChangedAction(eActionState.IDLE); // 플레이어가 범위를 벗어나면 Idle 상태로 전환
-                _timeWait = Random.Range(minTime, maxTime);
+                _timeWait = UnityEngine.Random.Range(minTime, maxTime);
             }
         }
     }
