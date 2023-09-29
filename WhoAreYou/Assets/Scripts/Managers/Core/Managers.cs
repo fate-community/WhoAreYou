@@ -9,7 +9,7 @@ public class Managers : MonoBehaviour
 {
     // 통합 매니저 인스턴스
     static Managers _managerInstance;
-    static Managers ManagerInstance { get { Init(); return _managerInstance; } }
+    static Managers ManagerInstance { get { return _managerInstance; } }
 
     // 갖가지 매니저들의 인스턴스
     private static InputManager _input = new InputManager();
@@ -24,6 +24,11 @@ public class Managers : MonoBehaviour
 
     void Awake()
     {
+        if (_managerInstance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Init();
     }
 
