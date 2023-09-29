@@ -15,10 +15,12 @@ public class Managers : MonoBehaviour
     private static InputManager _input = new InputManager();
     private static DialogueManager _dialogue = new DialogueManager();
     private static QuestManager _quest = new QuestManager();
+    private static DataManager _data = new DataManager();
 
     public static InputManager Input { get { return _input; } }
     public static DialogueManager Dialogue { get { return _dialogue; } }
     public static QuestManager Quest { get { return _quest; } }
+    public static DataManager Data { get { return _data; } }
 
     void Awake()
     {
