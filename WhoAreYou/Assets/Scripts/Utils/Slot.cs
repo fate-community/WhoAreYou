@@ -1,29 +1,131 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
-    [SerializeField] Image image;     // Image Component 담을 곳
+    public Item item;
+    public int itemCount;
+    public Image itemImage;
 
-    private Item _item;
-    public Item item
+    [SerializeField]
+    private Text text_Count;
+    [SerializeField]
+    private GameObject go_CountImage;
+
+
+    public void OnPointerClick(PointerEventData eventData)
     {
-        get { return _item; }    // 슬롯의 item 정보를 넘겨줄 때 사용
-        set 
+        if(eventData.button == PointerEventData.InputButton.Right)
         {
-            _item = value;       // item에 들어오는 정보의 값은 _item에 저장
-            
-            if(_item != null)
+            if(item != null)
             {
-                image.sprite = item.itemImage;
-                image.color = new Color(1, 1, 1, 1);
+                Debug.Log("whattodo");
             }
-            else
-            {
-                image.color = new Color(1, 1, 1, 0);
-            }
+        }
+    }
+    
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if(item != null)
+        {
+            DragSlot.instance.dragSlot = this;
+            DragSlot.instance.DragSetImage(itemImage);
+            DragSlot.instance.transform.position = eventData.position;
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if(item != null)
+        {
+            DragSlot.instance.transform.position = eventData.position;
+        }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        DragSlot.instance.SetColor(0);
+        DragSlot.instance.dragSlot = null;
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if(DragSlot.instance.dragSlot != null)
+        {
+            ChangeSlot();
+        }
+    }
+
+    private void SetColor(float _alpha)
+    {
+        Color color = itemImage.color;
+        color.a = _alpha;
+        itemImage.color = color;
+    }
+
+    public void AddItem(Item _item, int _count = 1)
+    {
+        item = _item;
+        itemCount = _count;
+        itemImage.sprite = item.itemImage;
+
+        if(item != null)
+        {
+            go_CountImage.SetActive(true);
+            text_Count.text = itemCount.ToString();
+        }
+
+        else
+        {
+            text_Count.text = "0";
+            go_CountImage.SetActive(false);
+        }
+
+        SetColor(1);
+    }
+
+    public void SetSlotCount(int _count)
+    {
+        itemCount += _count;
+        text_Count.text = itemCount.ToString();
+
+        if(itemCount <= 0)
+        {
+            ClearSlot();
+        }
+    }
+
+    private void ClearSlot()
+    {
+        item = null;
+        itemCount = 0;
+        itemImage.sprite = null;
+        SetColor(0);
+
+        text_Count.text = "0";
+        go_CountImage.SetActive(false);
+    }
+
+    private void ChangeSlot()
+    {
+        Item _tempItem = item;
+        int _tempItemCount = itemCount;
+
+        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
+
+        if(_tempItem != null)
+        {
+            DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
+        }
+        else
+        {
+            DragSlot.instance.dragSlot.ClearSlot();
         }
     }
 }
