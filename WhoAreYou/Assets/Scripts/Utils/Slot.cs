@@ -23,15 +23,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            if(item != null)
-            {
-                Debug.Log("whattodo");
-            }
+            Debug.Log("우클릭 없어");   
         }
     }
     
     public void OnBeginDrag(PointerEventData eventData)
     {
+        // 드래그 시작
         if(item != null)
         {
             DragSlot.instance.dragSlot = this;
@@ -42,6 +40,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public void OnDrag(PointerEventData eventData)
     {
+        // 드래그 중
         if(item != null)
         {
             DragSlot.instance.transform.position = eventData.position;
@@ -50,6 +49,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        // 드래그 끝
         DragSlot.instance.SetColor(0);
         DragSlot.instance.dragSlot = null;
     }
@@ -75,14 +75,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         itemCount = _count;
         itemImage.sprite = item.itemImage;
 
-        if(item != null)
-        {
-            go_CountImage.SetActive(true);
-            text_Count.text = itemCount.ToString();
-        }
+        go_CountImage.SetActive(true);
+        text_Count.text = itemCount.ToString();
 
-        else
-        {
+        if(item == null)
+        { 
             text_Count.text = "0";
             go_CountImage.SetActive(false);
         }

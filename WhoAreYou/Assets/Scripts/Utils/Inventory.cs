@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -13,10 +15,14 @@ public class Inventory : MonoBehaviour
 
     private Slot[] slots;
 
+    [SerializeField]
+    Item item;
+
     // Start is called before the first frame update
     void Start()
     {
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
+        AcquireItem(item, 5);
     }
 
     // Update is called once per frame
