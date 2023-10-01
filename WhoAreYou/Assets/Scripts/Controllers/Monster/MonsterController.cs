@@ -85,13 +85,11 @@ public abstract class MonsterController : MonoBehaviour
     private void Awake()
     {
         Stat stat = GetComponent<Stat>();
-        hp = stat.Hp;
     }
 
     protected void Start()
     {
         Init();
-        stat = GetComponent<Stat>();
         switch (_eCh)
         {
             case eCharacter.Fierce:
@@ -101,6 +99,12 @@ public abstract class MonsterController : MonoBehaviour
                 _characterStd = 80;
                 break;
         }
+    }
+
+    protected void OnEnable()
+    {
+        stat = GetComponent<Stat>();
+        stat.Hp = stat.MaxHp;
     }
     int MonsterID()
     {
@@ -122,17 +126,15 @@ public abstract class MonsterController : MonoBehaviour
         return monsterID;
     }
 
+
     protected void Update()
     {
         if (_isDeath)
         {
             ChangedAction(eActionState.DIE);
-            gameObject.SetActive(false);
             _isDeath = false;
-            stat.Hp = 10;
 
-            Managers.Quest.QuestPerformAction.Invoke(MonsterID());
-
+            //Managers.Quest.QuestPerformAction.Invoke(MonsterID());
             return;
         }
 
@@ -343,12 +345,19 @@ public abstract class MonsterController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject player = GameObject.Find("Player");
-        if (other.CompareTag("weapon"))
+        if (other.CompareTag("Weapon"))
         {
             stat.OnAttacked(player.GetComponent<Stat>());
             ChangedAction(eActionState.HIT);
         }
     }
+
+    private void DisableMonster()
+    {
+        gameObject.SetActive(false);
+    }
+
+
 }
 
 

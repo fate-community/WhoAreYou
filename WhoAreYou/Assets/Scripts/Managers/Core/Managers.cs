@@ -44,7 +44,7 @@ public class Managers : MonoBehaviour
             _managerInstance = go.GetComponent<Managers>();
         }
 
-        _dialogue.Init();
-        Quest.Init();
+        //_dialogue.Init();
+        //Quest.Init();
     }
 }

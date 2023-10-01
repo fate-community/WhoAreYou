@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - EnemyWeapon
+  - Weapon
+  - Ork
+  - Golem
+  - Dragon
+  - Fireball
   layers:
   - Default
   - TransparentFX

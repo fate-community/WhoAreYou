@@ -2132,7 +2132,7 @@ GameObject:
   - component: {fileID: 4696484895942216999}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2145,7 +2145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7203667367367625146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2171,8 +2171,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 4.78, y: 3.37, z: 4.5}
-  m_Center: {x: -0.34, y: 1.82, z: 6.12}
+  m_Size: {x: 5.249393, y: 3.7698932, z: 5.4157467}
+  m_Center: {x: -0.10530261, y: 2.0199468, z: 6.577848}
 --- !u!1 &7520270742331765090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,7 +2448,7 @@ GameObject:
   - component: {fileID: 79900506217098171}
   - component: {fileID: 8097008716149926836}
   - component: {fileID: 1699154158017479929}
-  - component: {fileID: 7246891130588360340}
+  - component: {fileID: 3471936702486266907}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -2473,7 +2473,7 @@ Transform:
   - {fileID: 2732093146836554586}
   - {fileID: 5126984192316931971}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 87.361, z: 0}
 --- !u!114 &6106234835494114828
 MonoBehaviour:
@@ -2592,12 +2592,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9815a06e93e39c44bb78c2a286619e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 21
-  _maxHp: 21
-  _attack: 2
+  _hp: 100
+  _maxHp: 100
+  _attack: 10
   _defense: 1
---- !u!135 &7246891130588360340
-SphereCollider:
+--- !u!136 &3471936702486266907
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2614,9 +2614,11 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3.3750875
-  m_Center: {x: 2.517706e-10, y: 2.7995977, z: -0.07548523}
+  serializedVersion: 2
+  m_Radius: 2.6227508
+  m_Height: 5.2455034
+  m_Direction: 1
+  m_Center: {x: -0.42, y: 1.797567, z: -0.0000000013686672}
 --- !u!1 &8429608321529562714
 GameObject:
   m_ObjectHideFlags: 0

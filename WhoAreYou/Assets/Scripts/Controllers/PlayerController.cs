@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     public GameObject Camera;
     BoxCollider hitBox;
+    
 
     [SerializeField]
     BoxCollider weapon;
@@ -25,6 +27,11 @@ public class PlayerController : MonoBehaviour
     bool _attack = true;
     bool _roll = false;
     bool canRoll = true;
+    [SerializeField]
+    bool _isDie = false;
+
+
+    Stat stat;
 
     public enum State
     {
@@ -33,8 +40,6 @@ public class PlayerController : MonoBehaviour
         RUN,
         ATTACK,
         ROLL,
-        HIT,
-        DEATH
     }
 
     public State playerState;
@@ -51,13 +56,23 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        stat = GetComponent<Stat>();
         animator = GetComponent<Animator>();
         playerState = State.IDLE;
         animator.SetInteger("state", 0);
+        stat.Hp = stat.MaxHp;
     }
 
     private void Update()
     {
+        if(stat.Hp <= 0)
+        {
+            _isDie = true;
+            animator.SetBool("isDie", true);
+            hitBox.enabled = false;
+        }
+        if (_isDie)
+            return;
         switch (playerState)
         {
             case State.IDLE:
@@ -86,10 +101,6 @@ public class PlayerController : MonoBehaviour
                 {
                     changeState(State.IDLE);
                 }
-                break;
-            case State.HIT:
-                break;
-            case State.DEATH:
                 break;
         }
         _run = false;
@@ -130,14 +141,6 @@ public class PlayerController : MonoBehaviour
                 Invoke("stopCounter", 0.75f);
                 Invoke("rollCooltime", _rollCooltime);
                 break;
-            case State.HIT:
-                playerState = State.HIT;
-                animator.SetInteger("state", 5);
-                break;
-            case State.DEATH:
-                playerState = State.DEATH;
-                animator.SetInteger("state", 6);
-                break;
         }
     }
 
@@ -156,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
     void OnLeftClicked(bool clicked)
     {
-        if (clicked && playerState != State.ATTACK)
+        if (clicked && playerState != State.ATTACK && !_isDie)
         {
             changeState(State.ATTACK);
         }
@@ -203,34 +206,52 @@ public class PlayerController : MonoBehaviour
         {
             speed = 1f;
         }
+        if(!_isDie)
+        {
+            if (key == KeyCode.W)
+            {
+                var dir = offset;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                transform.position += dir * Time.deltaTime * speed;
+            }
+            if (key == KeyCode.S)
+            {
+                var dir = -offset;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                transform.position += dir * Time.deltaTime * speed;
+            }
+            if (key == KeyCode.D)
+            {
+                var dir = new Vector3(offset.z, offset.y, -offset.x);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                transform.position += dir * Time.deltaTime * speed;
+            }
+            if (key == KeyCode.A)
+            {
+                var dir = new Vector3(-offset.z, offset.y, offset.x);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
+                transform.position += dir * Time.deltaTime * speed;
+            }
+        }
 
 
-        if (key == KeyCode.W)
-        {
-            var dir = offset;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
-        }
-        if (key == KeyCode.S)
-        {
-            var dir = -offset;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
-        }
-        if (key == KeyCode.D)
-        {
-            var dir = new Vector3(offset.z, offset.y, -offset.x);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
-        }
-        if (key == KeyCode.A)
-        {
-            var dir = new Vector3(-offset.z, offset.y, offset.x);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
-        }
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("EnemyWeapon"))
+        {
+            Stat enemyStat = other.GetComponentInParent<Stat>();
+            animator.SetTrigger("hitTrigger");
+            stat.OnAttacked(enemyStat);
+        }
+    }
+
+
+
+
+
 }
 
 

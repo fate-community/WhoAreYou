@@ -1,0 +1,477 @@
+[33mcommit 07c7e95e9e5ec6093cd0d8399b2ae44ec27009ae[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/feature_DataManager[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Sat Sep 23 20:01:39 2023 +0900
+
+    test: 디스코드 웹훅 연동 테스트
+
+[33mcommit 5c0ce44acc555e88f87947ee795e4b04b83d15e0[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Sat Sep 23 19:51:39 2023 +0900
+
+    refactor: 디렉토리 일괄 수정
+
+[33mcommit dddbbdb19ec1de29c70dcd5e8613a4b7feff6153[m
+Merge: b5a0f61 d6e9594
+Author: golapaduck <73866752+golapaduck@users.noreply.github.com>
+Date:   Thu Sep 21 20:50:22 2023 +0900
+
+    Merge pull request #6 from fate-community/feature_playerMove
+    
+    Merge: playerMove to develop
+
+[33mcommit d6e959490f44988a5f9b50c95ed151aac27de68c[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Thu Sep 21 05:08:52 2023 +0900
+
+    feat: walk, roll 상태 추가
+
+[33mcommit 040dd39e50d605a805cfe06af4ec7e0fc335639f[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Thu Sep 21 05:08:17 2023 +0900
+
+    feat: 좌Shift, Space 추가 (InputManager)
+
+[33mcommit b5a0f61bfd7f2edd4e8a9d03d403aa91dd9af7a7[m
+Merge: 92a9ea2 5217196
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Sep 20 20:32:19 2023 +0900
+
+    Merge pull request #5 from fate-community/feature_questSystem
+    
+    Merge QuestSystem
+
+[33mcommit 52171960a69dbfc9832a1c804a1cdd1d1d2d6ede[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Sep 20 19:42:10 2023 +0900
+
+    refactor: 테스트 코드/씬 삭제
+
+[33mcommit fd340ef5f3674e4401f1243b8e757410a78f6dc7[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Sep 19 00:11:41 2023 +0900
+
+    refactor: 퀘스트 프리뷰 UI 크기조정
+
+[33mcommit 85593d6367480e8bb45e0220e5dbd40dd466a4c9[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Sep 19 00:04:58 2023 +0900
+
+    feat: 퀘스트 리스트 UI 구현
+
+[33mcommit 8ac16cd71c6335ee58b3b87129e0516214bd7f65[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Mon Sep 18 22:49:24 2023 +0900
+
+    refactor: 몬스터 ID 메소드 파라미터 삭제
+
+[33mcommit b69604daa5c1979a9441d29f18a62fcd430bfdfa[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Mon Sep 18 03:30:08 2023 +0900
+
+    feat: 몬스터 토벌에 의한 퀘스트 상호작용 구현
+
+[33mcommit 75cb71babd373378a4712fb25d4811e4bcff6ac7[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Sat Sep 9 21:02:44 2023 +0900
+
+    refactor: UI크기 재조정 및 변수명 변경
+
+[33mcommit 92a9ea2dcf2750985e68c48cbe14defce2fb4290[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Sat Sep 9 16:16:25 2023 +0900
+
+    refactor/TownScene
+
+[33mcommit 64adfd837127ecb9f2d1fff11f61b5df8cafa302[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Thu Sep 7 00:44:06 2023 +0900
+
+    feat: 퀘스트 기능과 대화 시스템 연동 및 테스트 씬, 코드 구현
+
+[33mcommit c708c95725886086fc721a27bbb6081b25051c01[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Thu Sep 7 00:42:46 2023 +0900
+
+    refactor: 불필요하게 추가되었던 대화 프리팹 삭제
+
+[33mcommit 3916d569bc91bdfa0b63c111f08dce06f133db27[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Mon Sep 4 20:37:58 2023 +0900
+
+    refactor: 퀘스트 클래스 수정 및 퀘스트 타입 Define 삭제
+
+[33mcommit e25e3a4286e0c3c48fcec9d7ab5b91339c49e0b2[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Sat Sep 2 16:02:01 2023 +0900
+
+    feat: 기초 퀘스트 클래스 및 매니저 구현
+
+[33mcommit 436344d66d253cbe5a74497903e071ff91786ac7[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Thu Aug 31 17:11:38 2023 +0900
+
+    refactor/TownScene
+
+[33mcommit 3e9161620ecc76932493726ca3f867d3e2a637d5[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Thu Aug 31 16:26:01 2023 +0900
+
+    refactor/TownScene - shader & road
+
+[33mcommit f4e5ed91c1c516de5c17c7f94a3e8d0d7eb1c3c5[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 30 01:50:45 2023 +0900
+
+    feat: hit,walk 애니메이션 세팅
+
+[33mcommit 82f4094d7166d9864b227545aab2de36376093b7[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 30 01:17:00 2023 +0900
+
+    feat: 카메라 위치 조정
+
+[33mcommit 12fe1912693fd0d363e90efe880ace48d8f44731[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 30 01:16:47 2023 +0900
+
+    feat: 플레이어 animation 조정
+
+[33mcommit 03da5f9b8d6a578ce3c3a99086d8d7349f576824[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Mon Aug 28 02:45:07 2023 +0900
+
+    refactor/TownScene - grass
+
+[33mcommit 855ff033cbca78957a669c377aaba2dafd59c532[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Sun Aug 27 20:08:22 2023 +0900
+
+    refactor/TownScene - light
+
+[33mcommit 7c2e8e4abb8922c547b788bc43586ccf2c0724b5[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Sat Aug 26 01:21:42 2023 +0900
+
+    refactor/TownScene - road
+
+[33mcommit 8b0dd9bf866a036b916f0200bb046f7e414ef42b[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Sat Aug 26 00:26:53 2023 +0900
+
+    refactor/TownScene
+
+[33mcommit a2577ea1a15695d0bcc24348efeab953bd24c0fb[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Thu Aug 17 17:27:41 2023 +0900
+
+    refactor: 대화시스템 프리팹 복구, 디렉토리 정리
+
+[33mcommit 6239ae6f468f42039a136808edd018ecde22a9fb[m
+Merge: 690f141 16530ea
+Author: golapaduck <73866752+golapaduck@users.noreply.github.com>
+Date:   Thu Aug 17 16:08:51 2023 +0900
+
+    Merge pull request #4 from fate-community/feture_move
+    
+    PR: feture_move to develop
+
+[33mcommit 16530eaf35726413e12f9e54648b5d50744d896b[m
+Merge: 576355e 690f141
+Author: golapaduck <73866752+golapaduck@users.noreply.github.com>
+Date:   Thu Aug 17 16:07:51 2023 +0900
+
+    Merge branch 'develop' into feture_move
+
+[33mcommit 576355eba4d8a0a9d654ae14b33ffe20f48b5f0b[m
+Merge: 11964a9 e79fbd9
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Thu Aug 17 16:03:01 2023 +0900
+
+    Merge branch 'feture_move' of https://github.com/fate-community/WhoAreYou into feture_move
+
+[33mcommit 11964a9375ccec160afee29cb5818a40e38dd89d[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Thu Aug 17 16:02:59 2023 +0900
+
+    refacter: Managers 디렉토리 수정
+
+[33mcommit e79fbd9766954cc0c6d1c1e18078e3a07c7ec55c[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Thu Aug 17 15:45:32 2023 +0900
+
+    refacter: Managers 디렉토리 수정
+
+[33mcommit 7ba0e408642129458245c1fe90d2f1aa672abeea[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Thu Aug 17 15:27:03 2023 +0900
+
+    refacter: 디렉토리 수정
+
+[33mcommit 690f141b5fe6722abb8f66580e5495a56ad12c0c[m
+Merge: f69a893 72a476c
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Thu Aug 17 00:51:29 2023 +0900
+
+    Merge pull request #3 from fate-community/feature_fight
+    
+    Feature fight
+
+[33mcommit 72a476c1d8b8f12ec4bccfb025233bc9ed01de78[m
+Merge: 9edbabf f69a893
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Thu Aug 17 00:51:15 2023 +0900
+
+    Merge branch 'develop' into feature_fight
+
+[33mcommit f69a8931a7a82f1f8e4516b337c33f8aa65d83dc[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Aug 16 17:09:37 2023 +0900
+
+    refactor: 디렉토리 수정
+
+[33mcommit 9edbabf1d713be24e22c081404a09c95941ba0dd[m
+Author: Johwoong <jhwong1234@tukorea.ac.kr>
+Date:   Wed Aug 16 15:29:47 2023 +0900
+
+    몬스터 스폰 최종 커밋
+
+[33mcommit dae080ce6d33f33701e4de3cb2415e8306f57c04[m
+Merge: f3af594 b975d3f
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Aug 16 15:17:25 2023 +0900
+
+    Merge pull request #1 from fate-community/dialogue_system
+    
+    Merge Dialogue system to develop
+
+[33mcommit b975d3f12a6a8fe7976c33ecba3924331c031e3b[m
+Merge: cfebb5f f3af594
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Aug 16 15:17:09 2023 +0900
+
+    Merge branch 'develop' into dialogue_system
+
+[33mcommit cfebb5f45dfc4beff9c013c6fca21e83d9711660[m
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Aug 16 15:12:26 2023 +0900
+
+    test: 대화 시스템 테스트 코드 및 리소스 일괄 삭제
+
+[33mcommit 8e29c8c1b903f09001fb8bbfef239770b70e9055[m
+Merge: 13c4fef 456e0f5
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 16 14:57:01 2023 +0900
+
+    Merge remote-tracking branch 'origin/feature_fight' into feature_fight
+
+[33mcommit 13c4fef93d188c4c485bad06a5e79ada85f3a362[m
+Author: jhwong1234@gmail.com <jhwong1234@tukorea.ac.kr>
+Date:   Tue Aug 15 18:44:58 2023 +0900
+
+    몬스터리스폰커밋
+
+[33mcommit 8e022b6efb88cd5a91736dec152ed33ac1b49693[m
+Author: jhwong1234@gmail.com <jhwong1234@tukorea.ac.kr>
+Date:   Fri Aug 4 11:08:01 2023 +0900
+
+    몬스터구현커밋합니다
+
+[33mcommit 33375f41c407c71f590eb48bbc12e8449f4e9532[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Wed Jul 19 17:02:27 2023 +0900
+
+    적 spawn 구현
+
+[33mcommit 5ef4feaa712bc6e04ebf3153537a137506552bdb[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 16 03:59:07 2023 +0900
+
+    feat: state 구조 수정
+
+[33mcommit 82205baaf7991586b101781e42661b1093a7d3da[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 16 02:57:13 2023 +0900
+
+    feat: 카메라 기준으로 플레이어 이동
+
+[33mcommit 456e0f5f973f0f9ec1c624a8e88447d0d83f6e29[m
+Author: jhwong1234@gmail.com <jhwong1234@tukorea.ac.kr>
+Date:   Tue Aug 15 18:44:58 2023 +0900
+
+    몬스터리스폰커밋
+
+[33mcommit 0c438a025a0d77d7de53ede9e320afbc17626a12[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Aug 9 11:45:50 2023 +0900
+
+    feat: 일러스트 추가, 폰트 에셋 변경
+
+[33mcommit da3ce4d1ff27d1af4765c99b282d1275ccaca06d[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 9 04:06:15 2023 +0900
+
+    feat: Player state 추가 및 애니메이션 수정
+
+[33mcommit d463c039f4a69b3abe5f7db1a4ad46ffaea474ce[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Aug 9 01:53:16 2023 +0900
+
+    feat: 대화 시스템 이름 추가 및 기타 리팩토링
+
+[33mcommit 91f99b1a8171c3c2706834bf6fa7212bdb085d7f[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Wed Aug 9 01:11:24 2023 +0900
+
+    refactor: 오버로딩을 통한 ShowDialogue 초기화 구현 및 테스트 스크립트 수정
+
+[33mcommit 5b5379211c0115af7af3ee512d1e1f2c37a617ba[m
+Author: jhwong1234@gmail.com <jhwong1234@tukorea.ac.kr>
+Date:   Fri Aug 4 11:08:01 2023 +0900
+
+    몬스터구현커밋합니다
+
+[33mcommit 4be5b8658e95ce366e3a113d6f0e7277a17ab7a6[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 2 01:49:14 2023 +0900
+
+    feat: Run 애니메이션 루프
+
+[33mcommit 55edd25126465aaf00853df5302290788c346401[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 2 01:48:40 2023 +0900
+
+    feat: 좌클릭 시 isAttack 트리거 실행
+
+[33mcommit ffab6b006b6b63ec8e3eb7b71be2384de47fc889[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 2 01:47:58 2023 +0900
+
+    feat: InputManager에 좌클릭 추가
+
+[33mcommit 37f4d417acab58f42322f688fd46998935314130[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 2 01:29:37 2023 +0900
+
+    feat: Idle,Run,Slash,Impact 애니메이션, Player 추가
+
+[33mcommit 4e946c8a13dff80d9231cd2726ee71049e5602c6[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Wed Aug 2 01:17:25 2023 +0900
+
+    feat: PlayerController에 이동 애니메이션 추가
+
+[33mcommit 8d074040457559d4d442785cc9fdcddc5a9afec8[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Mon Jul 31 16:17:25 2023 +0900
+
+    feat: 대화 애니메이션 추가
+    
+    한 글자씩 뜨는 기능
+
+[33mcommit 81e1c4ce6719642525773b84b6678faadd39304a[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Sun Jul 23 13:46:37 2023 +0900
+
+    feat: 기본 대화 시스템 구현
+
+[33mcommit 6c7a84bc9dfa77d9737f6d2728384e6cbd6e3a9a[m
+Author: onenewkong <hub1375@kpu.ac.kr>
+Date:   Wed Jul 19 17:02:27 2023 +0900
+
+    적 spawn 구현
+
+[33mcommit 7419c0e20bfd28eb42a17a93c51996d04f2a56d8[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Tue Jul 18 21:41:36 2023 +0900
+
+    feat: 카메라 회전 구현
+
+[33mcommit d158bb2f8afa9da5430a26ec9cf7713892cb6f1f[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Tue Jul 18 21:40:55 2023 +0900
+
+    feat: CameraController 추가
+
+[33mcommit ec0cac8d85cc8553bfc8c535ce0a0b19b8ff1259[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Tue Jul 18 21:40:00 2023 +0900
+
+    feat: InputManager에 마우스 드래그 추가
+
+[33mcommit e13e71f65c666b4a6fb6e54e471b9ec3b3394ca5[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Tue Jul 18 21:01:15 2023 +0900
+
+    feat: 플레이어 이동 구현
+
+[33mcommit c0ac5113bf8c6effda84aa98f3f824fee75f4cc0[m
+Author: golapaduck <golapaduck29@naver.com>
+Date:   Tue Jul 18 20:59:55 2023 +0900
+
+    feat: PlayerController 생성
+
+[33mcommit 98cc4911f4ebe9853f25e3ae29a218bfcd3cdf71[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Jul 11 04:20:46 2023 +0900
+
+    feat: DialogueManager 추가
+
+[33mcommit f3af594e9eebd6a02356dff4b6b3fdca9661720b[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Jul 11 04:20:46 2023 +0900
+
+    feat: DialogueManager 추가
+
+[33mcommit d868e3ad09eec1b9f4936b90e2a4e595ae56d5b3[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Jul 11 04:18:25 2023 +0900
+
+    feat: 대화 시스템 상호작용 테스트를 위한 UI 및 스크립트 추가
+
+[33mcommit 84b8f0f00fca69db97e9a7f68a4e7f4b3d3e0566[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Jul 11 03:51:53 2023 +0900
+
+    feat: 대화 시스템 테스트를 위한 별도 씬 생성
+
+[33mcommit a4ba8bac92642cb073743438fe0fcca340d06b4e[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Jul 11 03:37:19 2023 +0900
+
+    feat: 대화 시스템을 위한 데이터 클래스 선언
+
+[33mcommit 0d6af01f7773755d60ae84b4141f65ce168232f1[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Mon Jul 10 03:56:13 2023 +0900
+
+    feat: Manager 게임오브젝트 추가 및 InputManager 인스턴스 생성부 수정
+
+[33mcommit 9637d1163d4edbb46c90ff90a66efb1a26108e3b[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Thu Jul 6 18:40:58 2023 +0900
+
+    feat: InputManager 대리자를 이용한 입력부 구현
+
+[33mcommit d4ea81dfc295b155296a4332f3c52c110e5deaee[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Jul 4 15:49:54 2023 +0900
+
+    feat: 기초 매니저 세팅
+
+[33mcommit d39e8e30d60dd9f92f7b2d2047e72af4beace653[m
+Author: ayuriK152 <77537017+ayuriK152@users.noreply.github.com>
+Date:   Tue Jul 4 14:35:31 2023 +0900
+
+    feat: 최초 프로젝트 생성
+
+[33mcommit 02fd0e9a332679443e0b1bc602699f2f75358fef[m
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Fri Jun 30 20:05:51 2023 +0900
+
+    Update .gitignore
+
+[33mcommit 9b52913944d96cf4ad43fb6add19e310c2330212[m
+Author: Won-seop Lee <77537017+ayuriK152@users.noreply.github.com>
+Date:   Fri Jun 30 20:04:38 2023 +0900
+
+    Initial commit

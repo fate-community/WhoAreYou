@@ -25,7 +25,6 @@ public class Stat : MonoBehaviour
     {
         int damage = Mathf.Max(0, Attacker.Attack - Defense);
         Hp -= damage;
-
     }
 
 

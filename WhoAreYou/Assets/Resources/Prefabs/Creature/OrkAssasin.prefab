@@ -1568,7 +1568,7 @@ GameObject:
   - component: {fileID: 6055712090971108865}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6719,7 +6719,7 @@ Transform:
   - {fileID: 1449756526623569664}
   - {fileID: 2898698722002021081}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6880409331599137710
 Animator:
@@ -6785,8 +6785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9815a06e93e39c44bb78c2a286619e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
-  _maxHp: 10
+  _hp: 100
+  _maxHp: 100
   _attack: 3
   _defense: 1
 --- !u!195 &9184907757022602875
