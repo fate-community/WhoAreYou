@@ -15,9 +15,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     [SerializeField]
     private Text text_Count;
-    [SerializeField]
-    private GameObject go_CountImage;
-
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Right)
@@ -30,8 +28,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
             if (itemCount == 0)
             {
-                text_Count.text = "0";
-                itemImage = null;
+                ClearSlot();
             }
         }
     }
@@ -84,13 +81,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         itemCount = _count;
         itemImage.sprite = item.itemImage;
 
-        go_CountImage.SetActive(true);
         text_Count.text = itemCount.ToString();
 
         if(item == null)
         { 
             text_Count.text = "0";
-            go_CountImage.SetActive(false);
         }
 
         SetColor(1);
@@ -115,7 +110,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         SetColor(0);
 
         text_Count.text = "0";
-        go_CountImage.SetActive(false);
     }
 
     private void ChangeSlot()

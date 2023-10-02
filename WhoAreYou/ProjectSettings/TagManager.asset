@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Inventory_Base
+  - SlotHolder
+  - ItemSlot
+  - ItemImage
+  - ItemCount
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Inventory_Base
+    uniqueID: 1607850679
+    locked: 0
+  - name: SlotHolder
+    uniqueID: 891064019
+    locked: 0
+  - name: ItemSlot
+    uniqueID: 3702311719
+    locked: 0
+  - name: ItemCount
+    uniqueID: 2125901769
+    locked: 0
+  - name: ItemImage
+    uniqueID: 1216059309
     locked: 0
