@@ -18,12 +18,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     [SerializeField]
     private GameObject go_CountImage;
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            Debug.Log("우클릭 없어");   
+            if (itemCount > 0)
+            {
+                itemCount--;
+                text_Count.text = itemCount.ToString();
+            }
+
+            if (itemCount == 0)
+            {
+                text_Count.text = "0";
+                itemImage = null;
+            }
         }
     }
     

@@ -155,11 +155,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5243345345501128278, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.05882353
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569386, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Name
       value: DragSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975140859954569386, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569387, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Pivot.x
@@ -227,11 +231,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569387, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 630
+      value: 432
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569387, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 636.25
+      value: 488
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569387, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -247,6 +251,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Color.a
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
+      propertyPath: m_Color.b
+      value: 0.35760057
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
+      propertyPath: m_Color.r
+      value: 0.61835694
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9028456472850068985, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
@@ -1958,7 +1978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622e736889dacfb4ea514d24f55bb17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragSlot: {fileID: 0}
+  dragSlot: {fileID: 1253894024}
   imageItem: {fileID: 2099372295}
 --- !u!114 &2136223586 stripped
 MonoBehaviour:
