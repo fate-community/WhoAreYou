@@ -173,15 +173,15 @@ public class PlayerController : MonoBehaviour
                 {
                     changeState(State.ROLL);
                 }
-                if (key == KeyCode.LeftShift)
+                else if (key == KeyCode.LeftShift)
                 {
                     changeState(State.RUN);
                 }
+                else if (key != KeyCode.Space)
+                {
+                    changeState(State.WALK);
+                }
 
-            }
-            if (playerState == State.IDLE || playerState == State.WALK)
-            {
-                changeState(State.WALK);
             }
 
             Move(key);
