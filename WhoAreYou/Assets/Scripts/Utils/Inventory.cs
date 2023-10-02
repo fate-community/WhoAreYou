@@ -15,17 +15,10 @@ public class Inventory : MonoBehaviour
 
     private Slot[] slots;
 
-    [SerializeField]
-    Item item1;
-    [SerializeField]
-    Item item2;
-
     // Start is called before the first frame update
     void Start()
     {
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
-        AcquireItem(item1, 1);
-        AcquireItem(item2, 1);
     }
 
     // Update is called once per frame
