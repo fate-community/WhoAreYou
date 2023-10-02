@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5243345345501128278, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Color.a
-      value: 0.05882353
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569386, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Name
@@ -262,15 +262,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.09411765
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.09411765
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.09411765
       objectReference: {fileID: 0}
     - target: {fileID: 5975140859954569388, guid: 5fe60b1a47ae3564e99855785b5fabfc, type: 3}
       propertyPath: m_Maskable
