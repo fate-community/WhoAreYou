@@ -7,6 +7,7 @@ public class InputManager
     public Action<KeyCode> KeyDownAction = null;
     public Action<float, float> DragAction = null;
     public Action<bool> LeftClickAction = null;
+    public Action<bool> RightClickAction = null;
 
     private float xmove = 0;
     private float ymove = 0;
@@ -44,6 +45,11 @@ public class InputManager
             {
                 KeyAction.Invoke(KeyCode.Space);
             }
+
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                KeyAction.Invoke(KeyCode.I);
+            }
         }
 
         if (KeyDownAction != null)
@@ -65,6 +71,11 @@ public class InputManager
         if (LeftClickAction != null)
         {
             LeftClickAction.Invoke(Input.GetMouseButtonDown(0));
+        }
+
+        if (RightClickAction != null)
+        {
+            RightClickAction.Invoke(Input.GetMouseButtonDown(0));
         }
     }
 }
