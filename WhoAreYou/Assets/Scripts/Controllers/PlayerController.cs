@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     bool _roll = false;
     bool canRoll = true;
 
+    List<KeyCode> moveKeys = new List<KeyCode>() { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.LeftShift, KeyCode.Space };
+
     public enum State
     {
         IDLE,
@@ -164,27 +166,30 @@ public class PlayerController : MonoBehaviour
 
     void OnKeyboard(KeyCode key)
     {
-
-        if (playerState != State.ATTACK)
+        if (moveKeys.Contains(key))
         {
-            if (playerState != State.ROLL)
+            if (playerState != State.ATTACK)
             {
-                if (key == KeyCode.Space && canRoll)
+                if (playerState != State.ROLL)
                 {
-                    changeState(State.ROLL);
-                }
-                else if (key == KeyCode.LeftShift)
-                {
-                    changeState(State.RUN);
-                }
-                else if (key != KeyCode.Space)
-                {
-                    changeState(State.WALK);
+                    if (key == KeyCode.Space && canRoll)
+                    {
+                        changeState(State.ROLL);
+                    }
+                    else if (key == KeyCode.LeftShift)
+                    {
+                        changeState(State.RUN);
+                    }
+                    else if (key != KeyCode.Space)
+                    {
+                        changeState(State.WALK);
+                    }
+
                 }
 
+                Move(key);
             }
 
-            Move(key);
         }
     }
     void Move(KeyCode key)
