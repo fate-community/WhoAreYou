@@ -40,7 +40,7 @@ public class InputManager
                 KeyAction.Invoke(KeyCode.LeftShift);
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 KeyAction.Invoke(KeyCode.Space);
             }
