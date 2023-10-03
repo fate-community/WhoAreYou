@@ -18,18 +18,22 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Managers.Input.KeyAction -= TryOpenInventory;
+        // Managers.Input.RightClickAction -= OnClicked;
+        Managers.Input.KeyAction += TryOpenInventory;
+        // Managers.Input.RightClickAction += OnClicked;
+
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        TryOpenInventory();
     }
 
-    private void TryOpenInventory()
+    private void TryOpenInventory(KeyCode key)
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (key == KeyCode.I)
         {
             inventoryActivated = !inventoryActivated;
 
@@ -41,6 +45,7 @@ public class Inventory : MonoBehaviour
             {
                 CloseInventory();
             }
+
         }
     }
 
@@ -56,7 +61,7 @@ public class Inventory : MonoBehaviour
 
     public void AcquireItem(Item _item, int _count = 1)
     {
-        for(int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].item != null)
             {
@@ -70,7 +75,7 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].item == null) 
+            if (slots[i].item == null)
             {
                 slots[i].AddItem(_item, _count);
                 return;
