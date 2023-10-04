@@ -9,19 +9,26 @@ public class Managers : MonoBehaviour
 {
     // 통합 매니저 인스턴스
     static Managers _managerInstance;
-    static Managers ManagerInstance { get { Init(); return _managerInstance; } }
+    static Managers ManagerInstance { get { return _managerInstance; } }
 
     // 갖가지 매니저들의 인스턴스
     private static InputManager _input = new InputManager();
     private static DialogueManager _dialogue = new DialogueManager();
     private static QuestManager _quest = new QuestManager();
+    private static DataManager _data = new DataManager();
 
     public static InputManager Input { get { return _input; } }
     public static DialogueManager Dialogue { get { return _dialogue; } }
     public static QuestManager Quest { get { return _quest; } }
+    public static DataManager Data { get { return _data; } }
 
     void Awake()
     {
+        if (_managerInstance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Init();
     }
 
