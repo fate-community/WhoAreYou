@@ -52,6 +52,10 @@ public class InputManager
             {
                 KeyDownAction.Invoke(KeyCode.F1);
             }
+            if (Input.GetKeyDown(KeyCode.E))       // 대화 상호작용
+            {
+                KeyDownAction.Invoke(KeyCode.E);
+            }
         }
 
         if (DragAction != null)

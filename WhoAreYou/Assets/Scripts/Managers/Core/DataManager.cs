@@ -6,7 +6,7 @@ public class DataManager
 {
     /* Json 데이터 파일을 로드하기 위한 메서드
      */
-    T LoadJsonData<T>(string path, bool isInternal)
+    public T LoadJsonData<T>(string path, bool isInternal)
     {
         if (isInternal)
             path = $"{Application.dataPath}/{path}";
