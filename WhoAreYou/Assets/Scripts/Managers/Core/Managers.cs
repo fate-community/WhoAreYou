@@ -7,11 +7,11 @@ using static Datas;
 
 public class Managers : MonoBehaviour
 {
-    // 통합 매니저 인스턴스
+    // ?�합 매니?� ?�스?�스
     static Managers _managerInstance;
     static Managers ManagerInstance { get { Init(); return _managerInstance; } }
 
-    // 갖가지 매니저들의 인스턴스
+    // 갖�?지 매니?�?�의 ?�스?�스
     private static InputManager _input = new InputManager();
     private static DialogueManager _dialogue = new DialogueManager();
     private static QuestManager _quest = new QuestManager();

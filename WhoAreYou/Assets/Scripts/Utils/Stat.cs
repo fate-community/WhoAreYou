@@ -27,6 +27,4 @@ public class Stat : MonoBehaviour
         Hp -= damage;
 
     }
-
-
 }
