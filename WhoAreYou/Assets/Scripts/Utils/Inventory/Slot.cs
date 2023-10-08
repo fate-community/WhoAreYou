@@ -23,6 +23,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             {
                 item.ItemUse();
                 text_Count.text = item.itemCounter.ToString();
+<<<<<<< HEAD
+=======
+                Debug.Log(item.itemCounter);
+>>>>>>> 196b17c5de13b52e2c0332ba153400f9a6481e90
             }
 
             if (item.itemCounter == 0)
