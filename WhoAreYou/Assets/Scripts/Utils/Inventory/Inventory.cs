@@ -15,6 +15,9 @@ public class Inventory : MonoBehaviour
 
     private Slot[] slots;
 
+    [SerializeField]
+    private Item item;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +27,8 @@ public class Inventory : MonoBehaviour
         // Managers.Input.RightClickAction += OnClicked;
 
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        AcquireItem(item, 5);
     }
 
     private void TryOpenInventory(KeyCode key)
@@ -45,7 +45,6 @@ public class Inventory : MonoBehaviour
             {
                 CloseInventory();
             }
-
         }
     }
 

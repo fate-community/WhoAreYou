@@ -10,7 +10,6 @@ using static UnityEditor.Progress;
 public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     public Item item;
-    public int itemCount;
     public Image itemImage;
 
     [SerializeField]
@@ -20,13 +19,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            if (itemCount > 0)
+            if (item.itemCounter > 0)
             {
-                itemCount--;
-                text_Count.text = itemCount.ToString();
+                item.ItemUse();
+                text_Count.text = item.itemCounter.ToString();
             }
 
-            if (itemCount == 0)
+            if (item.itemCounter == 0)
             {
                 ClearSlot();
             }
@@ -78,10 +77,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public void AddItem(Item _item, int _count = 1)
     {
         item = _item;
-        itemCount = _count;
+        item.itemCounter = _count;
         itemImage.sprite = item.itemImage;
 
-        text_Count.text = itemCount.ToString();
+        text_Count.text = item.itemCounter.ToString();
 
         if(item == null)
         { 
@@ -93,10 +92,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public void SetSlotCount(int _count)
     {
-        itemCount += _count;
-        text_Count.text = itemCount.ToString();
+        item.itemCounter += _count;
+        text_Count.text = item.itemCounter.ToString();
 
-        if(itemCount <= 0)
+        if(item.itemCounter <= 0)
         {
             ClearSlot();
         }
@@ -105,7 +104,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private void ClearSlot()
     {
         item = null;
-        itemCount = 0;
+        item.itemCounter = 0;
         itemImage.sprite = null;
         SetColor(0);
 
@@ -115,9 +114,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private void ChangeSlot()
     {
         Item _tempItem = item;
-        int _tempItemCount = itemCount;
+        int _tempItemCount = item.itemCounter;
 
-        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
+        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.item.itemCounter);
 
         if(_tempItem != null)
         {
