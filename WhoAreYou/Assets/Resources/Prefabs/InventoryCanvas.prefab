@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5333242461475967226}
   - component: {fileID: 17395330881386002}
   - component: {fileID: 5211367015764391559}
+  - component: {fileID: 1570531870858192988}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -103,6 +104,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1570531870858192988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330737936344806516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272e39e199677bd45aa7912561d6f6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go_InventoryBase: {fileID: 6494269238427549010}
+  go_SlotsParent: {fileID: 6494269237700509663}
+  item: {fileID: 0}
 --- !u!1001 &7491667506055808135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1379,9 +1395,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3827014129869693996}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2386934508583419617, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6438324945975594242}
     - targetCorrespondingSourceObject: {fileID: 2386934507897471174, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2234657128433774623}
@@ -1464,7 +1477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038301829448}
   text_Count: {fileID: 2840577454643534567}
 --- !u!1 &633795346736343729 stripped
@@ -1485,7 +1497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038390230093}
   text_Count: {fileID: 2840577454564556770}
 --- !u!1 &633795346749301845 stripped
@@ -1506,7 +1517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038377005737}
   text_Count: {fileID: 2840577454585147654}
 --- !u!1 &633795346772888345 stripped
@@ -1527,7 +1537,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316037959347130}
   text_Count: {fileID: 2840577454737520661}
 --- !u!1 &633795346885727480 stripped
@@ -1548,7 +1557,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038244962820}
   text_Count: {fileID: 2840577454452834731}
 --- !u!1 &633795347113622609 stripped
@@ -1569,7 +1577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038482459309}
   text_Count: {fileID: 2840577454220699906}
 --- !u!1 &633795347438234866 stripped
@@ -1590,7 +1597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038025718286}
   text_Count: {fileID: 2840577454938503585}
 --- !u!1 &633795347444455120 stripped
@@ -1611,7 +1617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038023680044}
   text_Count: {fileID: 2840577454936327043}
 --- !u!1 &633795347498201154 stripped
@@ -1632,7 +1637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038035486398}
   text_Count: {fileID: 2840577454914053393}
 --- !u!1 &633795347556520545 stripped
@@ -1653,7 +1657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316038158372325}
   text_Count: {fileID: 2840577454855718706}
 --- !u!1 &633795347639086406 stripped
@@ -1674,7 +1677,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 4616096490724820361}
   text_Count: {fileID: 8466825373547730470}
 --- !u!1 &633795347875281165 stripped
@@ -1695,7 +1697,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316037121802225}
   text_Count: {fileID: 2840577455577164894}
 --- !u!1 &633795347899117570 stripped
@@ -1716,7 +1717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316037095274238}
   text_Count: {fileID: 2840577455584716113}
 --- !u!1 &633795347943731997 stripped
@@ -1737,7 +1737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316037189072353}
   text_Count: {fileID: 2840577455510873678}
 --- !u!1 &633795347967315720 stripped
@@ -1758,7 +1757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316037163370996}
   text_Count: {fileID: 2840577455518734939}
 --- !u!1 &633795347981217550 stripped
@@ -1779,7 +1777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316037487651314}
   text_Count: {fileID: 2840577455473392221}
 --- !u!1 &633795348061632788 stripped
@@ -1800,7 +1797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316037534646248}
   text_Count: {fileID: 2840577455420107847}
 --- !u!1 &633795348383688595 stripped
@@ -1821,7 +1817,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316036548043119}
   text_Count: {fileID: 2840577456144528064}
 --- !u!1 &633795348478687279 stripped
@@ -1842,7 +1837,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316036650254035}
   text_Count: {fileID: 2840577456045534588}
 --- !u!1 &633795348603901083 stripped
@@ -1863,7 +1857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 1361316036994781799}
   text_Count: {fileID: 2840577455953723848}
 --- !u!114 &1361316036548043119 stripped
@@ -2310,21 +2303,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2386934508583419617, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
   m_PrefabInstance: {fileID: 8863188791490511795}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6438324945975594242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6494269238427549010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 272e39e199677bd45aa7912561d6f6e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  go_InventoryBase: {fileID: 6494269238427549010}
-  go_SlotsParent: {fileID: 6494269237700509663}
-  item: {fileID: 0}
 --- !u!1 &6494269238882976629 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2386934507897471174, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -2343,7 +2321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemCount: 0
   itemImage: {fileID: 4616096490724820361}
   text_Count: {fileID: 8466825373547730470}
 --- !u!114 &8466825373547730470 stripped
