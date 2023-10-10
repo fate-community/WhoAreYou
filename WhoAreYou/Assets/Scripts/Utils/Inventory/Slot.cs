@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -11,21 +12,29 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 {
     public Item item;
     public Image itemImage;
+    private int itemCount;
 
     [SerializeField]
     private Text text_Count;
-    
+
+    public PotionItem potionItem;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            if (item.itemCounter > 0)
+            if (itemCount > 0)
             {
-                item.ItemUse();
-                text_Count.text = item.itemCounter.ToString();
+                itemCount--;
+                text_Count.text = itemCount.ToString();
+
+                if (item.itemType == Item.ItemType.Potion)
+                {
+                    potionItem.Potion();
+                }
             }
 
-            if (item.itemCounter == 0)
+            if (itemCount <= 0)
             {
                 ClearSlot();
             }
@@ -77,10 +86,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public void AddItem(Item _item, int _count = 1)
     {
         item = _item;
-        item.itemCounter = _count;
+        itemCount = _count;
         itemImage.sprite = item.itemImage;
 
-        text_Count.text = item.itemCounter.ToString();
+        text_Count.text = itemCount.ToString();
 
         if(item == null)
         { 
@@ -92,10 +101,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public void SetSlotCount(int _count)
     {
-        item.itemCounter += _count;
-        text_Count.text = item.itemCounter.ToString();
+        itemCount += _count;
+        text_Count.text = itemCount.ToString();
 
-        if(item.itemCounter <= 0)
+        if(itemCount <= 0)
         {
             ClearSlot();
         }
@@ -104,7 +113,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private void ClearSlot()
     {
         item = null;
-        item.itemCounter = 0;
+        itemCount = 0;
         itemImage.sprite = null;
         SetColor(0);
 
@@ -114,9 +123,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private void ChangeSlot()
     {
         Item _tempItem = item;
-        int _tempItemCount = item.itemCounter;
+        int _tempItemCount = itemCount;
 
-        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.item.itemCounter);
+        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
 
         if(_tempItem != null)
         {

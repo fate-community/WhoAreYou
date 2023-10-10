@@ -20,7 +20,6 @@ public class Stat : MonoBehaviour
     public int Defense { get { return _defense; } set { _defense = value; } }
 
 
-
     public void OnAttacked(Stat Attacker)
     {
         int damage = Mathf.Max(0, Attacker.Attack - Defense);
