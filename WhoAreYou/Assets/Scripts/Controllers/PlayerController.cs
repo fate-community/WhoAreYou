@@ -246,6 +246,12 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("hitTrigger");
             stat.OnAttacked(enemyStat);
         }
+        if(other.CompareTag("Fireball"))
+        {
+            Stat enemyStat = other.GetComponentInParent<Stat>();
+            animator.SetTrigger("hitTrigger");
+            stat.OnAttacked(enemyStat);
+        }
     }
 
 

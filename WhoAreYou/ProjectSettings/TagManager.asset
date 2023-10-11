@@ -10,6 +10,7 @@ TagManager:
   - Golem
   - Dragon
   - Fireball
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - FireLayer
+  - Monster
+  - Floor
   - 
   - 
   - 

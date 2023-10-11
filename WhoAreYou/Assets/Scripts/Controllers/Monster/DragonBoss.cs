@@ -1,3 +1,4 @@
+using DigitalRuby.PyroParticles;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,7 +20,8 @@ public class DragonBoss : MonoBehaviour
     private NavMeshAgent nav;
     private Animator anim;
     private Stat stat;
-    public GameObject breathPrefab;   // 브레스 스킬 프리팹
+    public GameObject fireBall;   // 파이어볼 프리팹
+    GameObject currentPrefabObject; // 현재 프리팹
     public Transform breathSpawnPoint; // 브레스 스킬 발사 지점
     public float breathCooldown = 7f; // 브레스 스킬 쿨타임
     public float ClawCooldwon = 10f; // Claw 스킬 쿨타임
@@ -27,7 +29,8 @@ public class DragonBoss : MonoBehaviour
     [SerializeField]
     private float currentBreathCooldown = 0f;
     [SerializeField]
-    private float currentClawCooldown = 0f; 
+    private float currentClawCooldown = 0f;
+    private FireBaseScript currentPrefabScript; // Fireball 스크립트
 
     public float meleeAttackRange = 2f; // 근접 공격 범위
 
@@ -82,12 +85,12 @@ public class DragonBoss : MonoBehaviour
             anim.SetBool("isDie", true);
         }
         if (isDie)
-        { 
+        {
             return;
         }
         if (!PlayerDetected())
         {
-            currentState = BossState.IDLE; 
+            currentState = BossState.IDLE;
         }
         bosshpSlider.gameObject.SetActive(true);
         if (stat.Hp <= 30)
@@ -106,7 +109,7 @@ public class DragonBoss : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         if (other.CompareTag("Weapon"))
         {
-            stat.OnAttacked(player.GetComponent<Stat>());    
+            stat.OnAttacked(player.GetComponent<Stat>());
         }
     }
 
@@ -233,19 +236,8 @@ public class DragonBoss : MonoBehaviour
     {
         transform.LookAt(playerTransform);
         anim.SetTrigger("breathTrigger");
-        if (breathPrefab != null && breathSpawnPoint != null )
-        {
-            StartCoroutine("CreateFireBall");
-        }
         currentBreathCooldown = breathCooldown;
         isBreathing = false;
-    }
-
-    IEnumerator CreateFireBall()
-    {
-        yield return new WaitForSeconds(0.2f);
-        Instantiate(breathPrefab, breathSpawnPoint.position, breathSpawnPoint.rotation);
-        StopCoroutine("CreateFireBall");
     }
 
     private void ChangeStateIdle() // Idle상태로 바꾸기
@@ -285,6 +277,53 @@ public class DragonBoss : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void BeginEffect()
+    {
+        Vector3 pos = transform.position;
+        float yRot = transform.rotation.eulerAngles.y;
+        Quaternion rotation = transform.rotation;
+        currentPrefabObject = GameObject.Instantiate(fireBall);
+        currentPrefabScript = currentPrefabObject.GetComponent<FireConstantBaseScript>();
+
+        if (currentPrefabScript == null)
+        {
+            // Temporary effect, like a fireball
+            currentPrefabScript = currentPrefabObject.GetComponent<FireBaseScript>();
+            if (currentPrefabScript.IsProjectile)
+            {
+                // Set the start point near the player to the left and slightly above
+                Vector3 forwardY = Quaternion.Euler(0.0f, yRot, 0.0f) * Vector3.forward;
+                Vector3 left = -transform.right; // Calculate the left direction
+                pos = transform.position + left + forwardY + Vector3.up * 1.0f; // Adjust the 1.0f value as needed
+                rotation = transform.rotation;
+            }
+            else
+            {
+                // Set the start point in front of the player a ways to the left and slightly above
+                Vector3 forwardY = Quaternion.Euler(0.0f, yRot, 0.0f) * Vector3.forward;
+                Vector3 left = -transform.right; // Calculate the left direction
+                pos = transform.position + left + forwardY * 10.0f + Vector3.up * 1.0f; // Adjust the 1.0f value as needed
+            }
+        }
+        else
+        {
+            // Set the start point in front of the player a ways to the left and slightly above, rotated the same way as the player
+            Vector3 forwardY = Quaternion.Euler(0.0f, yRot, 0.0f) * Vector3.forward;
+            Vector3 left = -transform.right; // Calculate the left direction
+            pos = transform.position + left + forwardY + Vector3.up * 1.0f; // Adjust the 1.0f value as needed
+            pos.y = 0.0f; // Optional: You can set the Y position to a specific value here if needed.
+        }
+
+        FireProjectileScript projectileScript = currentPrefabObject.GetComponentInChildren<FireProjectileScript>();
+        if (projectileScript != null)
+        {
+            // Make sure we don't collide with other fire layers
+            projectileScript.ProjectileCollisionLayers &= ~LayerMask.GetMask("FireLayer");
+        }
+
+        currentPrefabObject.transform.position = pos;
+        currentPrefabObject.transform.rotation = rotation;
+    }
 
     private void SummonDragonMinions() // 드래곤 몬스터 
     {
