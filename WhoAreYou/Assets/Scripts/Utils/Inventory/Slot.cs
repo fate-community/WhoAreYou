@@ -17,7 +17,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     [SerializeField]
     private Text text_Count;
 
-    public PotionItem potionItem;
+    [SerializeField]
+    private PotionItem potionItem;
 
     public void OnPointerClick(PointerEventData eventData)
     {

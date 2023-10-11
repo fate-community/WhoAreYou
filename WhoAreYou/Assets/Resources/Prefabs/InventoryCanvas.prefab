@@ -1479,6 +1479,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038301829448}
   text_Count: {fileID: 2840577454643534567}
+  potionItem: {fileID: 0}
 --- !u!1 &633795346736343729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232843467010, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1499,6 +1500,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038390230093}
   text_Count: {fileID: 2840577454564556770}
+  potionItem: {fileID: 0}
 --- !u!1 &633795346749301845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232856426470, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1519,6 +1521,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038377005737}
   text_Count: {fileID: 2840577454585147654}
+  potionItem: {fileID: 0}
 --- !u!1 &633795346772888345 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025233081338026, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1539,6 +1542,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316037959347130}
   text_Count: {fileID: 2840577454737520661}
+  potionItem: {fileID: 0}
 --- !u!1 &633795346885727480 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232992851787, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1559,6 +1563,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038244962820}
   text_Count: {fileID: 2840577454452834731}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347113622609 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025233287856098, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1579,6 +1584,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038482459309}
   text_Count: {fileID: 2840577454220699906}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347438234866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232672943937, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1599,6 +1605,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038025718286}
   text_Count: {fileID: 2840577454938503585}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347444455120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232679163235, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1619,6 +1626,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038023680044}
   text_Count: {fileID: 2840577454936327043}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347498201154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232665277425, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1639,6 +1647,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038035486398}
   text_Count: {fileID: 2840577454914053393}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347556520545 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232589378002, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1659,6 +1668,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316038158372325}
   text_Count: {fileID: 2840577454855718706}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347639086406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025232739577589, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1679,6 +1689,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 4616096490724820361}
   text_Count: {fileID: 8466825373547730470}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347875281165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025234116098750, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1699,6 +1710,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316037121802225}
   text_Count: {fileID: 2840577455577164894}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347899117570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025234140459953, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1719,6 +1731,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316037095274238}
   text_Count: {fileID: 2840577455584716113}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347943731997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025234050855086, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1739,6 +1752,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316037189072353}
   text_Count: {fileID: 2840577455510873678}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347967315720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025234074438843, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1759,6 +1773,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316037163370996}
   text_Count: {fileID: 2840577455518734939}
+  potionItem: {fileID: 0}
 --- !u!1 &633795347981217550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025234289142973, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1779,6 +1794,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316037487651314}
   text_Count: {fileID: 2840577455473392221}
+  potionItem: {fileID: 0}
 --- !u!1 &633795348061632788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025234235865767, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1799,6 +1815,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316037534646248}
   text_Count: {fileID: 2840577455420107847}
+  potionItem: {fileID: 0}
 --- !u!1 &633795348383688595 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025233617871904, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1819,6 +1836,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316036548043119}
   text_Count: {fileID: 2840577456144528064}
+  potionItem: {fileID: 0}
 --- !u!1 &633795348478687279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025233511545756, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1839,6 +1857,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316036650254035}
   text_Count: {fileID: 2840577456045534588}
+  potionItem: {fileID: 0}
 --- !u!1 &633795348603901083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344025233703868200, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -1859,6 +1878,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 1361316036994781799}
   text_Count: {fileID: 2840577455953723848}
+  potionItem: {fileID: 0}
 --- !u!114 &1361316036548043119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7630226443883586268, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
@@ -2323,6 +2343,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemImage: {fileID: 4616096490724820361}
   text_Count: {fileID: 8466825373547730470}
+  potionItem: {fileID: 1858274781009978789, guid: b0a4b7f00643d0141a434621b477029f, type: 3}
 --- !u!114 &8466825373547730470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1044953784764568981, guid: efb8e389830fb2f4395ae723d2820b6f, type: 3}
