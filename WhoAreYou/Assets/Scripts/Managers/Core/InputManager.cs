@@ -35,11 +35,14 @@ public class InputManager
                 KeyAction.Invoke(KeyCode.D);
             }
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 KeyAction.Invoke(KeyCode.LeftShift);
             }
-
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                KeyAction.Invoke(KeyCode.LeftShift);
+            }
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 KeyAction.Invoke(KeyCode.Space);
@@ -48,11 +51,11 @@ public class InputManager
 
         if (KeyDownAction != null)
         {
-            if (Input.GetKeyDown(KeyCode.F1))       // Äù½ºÆ® ¸®½ºÆ®¸¦ ºÒ·¯¿Ã ¶§ »ç¿ë
+            if (Input.GetKeyDown(KeyCode.F1))       // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
             {
                 KeyDownAction.Invoke(KeyCode.F1);
             }
-            if (Input.GetKeyDown(KeyCode.E))       // ´ëÈ­ »óÈ£ÀÛ¿ë
+            if (Input.GetKeyDown(KeyCode.E))       // ï¿½ï¿½È­ ï¿½ï¿½È£ï¿½Û¿ï¿½
             {
                 KeyDownAction.Invoke(KeyCode.E);
             }

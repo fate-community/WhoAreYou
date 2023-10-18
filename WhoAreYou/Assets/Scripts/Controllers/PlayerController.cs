@@ -15,10 +15,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     BoxCollider weapon;
     [SerializeField]
-    float _walkSpeed = 2.0f;
+    float _walkSpeed = 2f;
     [SerializeField]
-    float _runSpeed = 5.0f;
+    float _runSpeed = 5f;
     [SerializeField]
+    float _speed;
     float _rollCooltime = 3f;
     bool _walk = false;
     bool _run = false;
@@ -94,7 +95,6 @@ public class PlayerController : MonoBehaviour
             case State.DEATH:
                 break;
         }
-        _run = false;
         _walk = false;
     }
 
@@ -109,13 +109,14 @@ public class PlayerController : MonoBehaviour
                 break;
             case State.WALK:
                 playerState = State.WALK;
+                _speed = _walkSpeed;
                 animator.SetInteger("state", 1);
                 _walk = true;
                 break;
             case State.RUN:
                 playerState = State.RUN;
+                _speed = _runSpeed;
                 animator.SetInteger("state", 2);
-                _run = true;
                 break;
             case State.ATTACK:
                 weapon.enabled = true;
@@ -178,11 +179,11 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (key == KeyCode.LeftShift)
                     {
-                        changeState(State.RUN);
+                        _run = !_run;
                     }
                     else if (key != KeyCode.Space)
                     {
-                        changeState(State.WALK);
+                        _walk = true;
                     }
 
                 }
@@ -194,45 +195,44 @@ public class PlayerController : MonoBehaviour
     }
     void Move(KeyCode key)
     {
-        float speed = _walkSpeed;
         var offset = Camera.transform.forward;
         offset.y = 0;
-
-
-        if (playerState == State.RUN)
-        {
-            speed = _runSpeed;
-        }
-
         if (playerState == State.ROLL)
         {
-            speed = 1f;
+            _speed = 1f;
         }
-
+        else if (_run)
+        {
+            changeState(State.RUN);
+        }
+        else if (_walk)
+        {
+            changeState(State.WALK);
+        }
 
         if (key == KeyCode.W)
         {
             var dir = offset;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
+            transform.position += dir * Time.deltaTime * _speed;
         }
         if (key == KeyCode.S)
         {
             var dir = -offset;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
+            transform.position += dir * Time.deltaTime * _speed;
         }
         if (key == KeyCode.D)
         {
             var dir = new Vector3(offset.z, offset.y, -offset.x);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
+            transform.position += dir * Time.deltaTime * _speed;
         }
         if (key == KeyCode.A)
         {
             var dir = new Vector3(-offset.z, offset.y, offset.x);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.2f);
-            transform.position += dir * Time.deltaTime * speed;
+            transform.position += dir * Time.deltaTime * _speed;
         }
 
     }
