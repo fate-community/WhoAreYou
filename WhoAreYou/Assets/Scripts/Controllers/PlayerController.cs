@@ -169,6 +169,10 @@ public class PlayerController : MonoBehaviour
     {
         if (moveKeys.Contains(key))
         {
+            if (key == KeyCode.LeftShift)
+            {
+                _run = !_run;
+            }
             if (playerState != State.ATTACK)
             {
                 if (playerState != State.ROLL)
@@ -176,10 +180,6 @@ public class PlayerController : MonoBehaviour
                     if (key == KeyCode.Space && canRoll)
                     {
                         changeState(State.ROLL);
-                    }
-                    else if (key == KeyCode.LeftShift)
-                    {
-                        _run = !_run;
                     }
                     else if (key != KeyCode.Space)
                     {
@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
         offset.y = 0;
         if (playerState == State.ROLL)
         {
-            _speed = 1f;
+            _speed = _runSpeed + 2f;
         }
         else if (_run)
         {
